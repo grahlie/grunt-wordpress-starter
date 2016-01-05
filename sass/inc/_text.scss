@@ -4,7 +4,7 @@ input,
 select,
 textarea {
   color: $text-color;
-  font-family: $font-main;
+  font-family: $font;
   @include font-size(1);
   line-height: $font-line-height;
 }
@@ -72,7 +72,7 @@ code, kbd, tt, var {
 }
 
 abbr, acronym {
-  border-bottom: @include rem(1) dotted $border-color;
+  border-bottom: to-rem(1px) dotted $border-color;
   cursor: help;
 }
 

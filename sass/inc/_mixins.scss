@@ -5,7 +5,7 @@
 }
 
 // px to rem
-@mixin rem($pixels, $context: $font-size) {
+@function to-rem($pixels, $context: $font-size) {
   @return #{$pixels/$context}rem;
 }
 

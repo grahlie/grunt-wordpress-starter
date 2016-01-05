@@ -30,7 +30,7 @@
       }
 
       a {
-        width: @include rem(200);
+        width: to-rem(200px);
       }
 
       :hover > a,

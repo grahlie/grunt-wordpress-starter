@@ -96,7 +96,7 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
   color: $input-text-color;
-  border: @include rem(1) solid $input-border-color;
+  border: to-rem(1px) solid $input-border-color;
   @include border-radius($radius);
 
   &:focus {
@@ -105,7 +105,7 @@ textarea {
 }
 
 select {
-  border: @include rem(1) solid $input-border-color;
+  border: to-rem(1px) solid $input-border-color;
 }
 
 input[type="text"],
@@ -123,10 +123,10 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"] {
-  padding: @include rem(3);
+  padding: to-rem(3px);
 }
 
 textarea {
-  padding-left: @include rem(3);
+  padding-left: to-rem(3px);
   width: 100%;
 }

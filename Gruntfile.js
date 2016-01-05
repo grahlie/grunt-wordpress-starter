@@ -1,5 +1,5 @@
 // Information about URL for page
-var name = 'roosmekaniska';
+var name = 'wordpress';
 
 module.exports = function(grunt) {
   grunt.initConfig({

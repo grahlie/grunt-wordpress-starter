@@ -15,7 +15,6 @@
     "browser-sync": "latest",
     "grunt": "latest",
     "grunt-autoprefixer": "latest",
-    "grunt-bower-task": "latest",
     "grunt-browser-sync": "latest",
     "grunt-contrib-jshint": "latest",
     "grunt-contrib-sass": "latest",
