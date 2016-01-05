@@ -1,0 +1,132 @@
+blockquote, q {
+  quotes: "" "";
+
+  &:before,
+  &:after {
+    content: "";
+  }
+}
+
+hr {
+  background-color: $hr-color;
+  border: 0;
+  height: 1px;
+  margin-bottom: 1.5rem;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+// Lists
+ul, ol {
+  margin: 0 0 1.5rem 3rem;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 1.5rem;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 0 1.5rem 1.5rem;
+}
+
+// Tables
+table {
+  margin: 0 0 1.5rem;
+  width: 100%;
+}
+
+
+// Buttons
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  border: 1px solid;
+  border-color: $button-border-color;
+  border-radius: 3px;
+  background: $button-bg-color;
+  color: $button-text-color;
+  @include font-size(1);
+  line-height: 1;
+  padding: .6rem 1rem .4rem;
+
+  &:hover {
+    background: $button-bg-color-hover;
+    border-color: $button-border-color-hover;
+  }
+
+  &:active,
+  &:focus {
+    background: $button-bg-color-focus;
+  }
+}
+
+// Inputs
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+  color: $input-text-color;
+  border: @include rem(1) solid $input-border-color;
+  @include border-radius($radius);
+
+  &:focus {
+    color: $input-text-color-focus;
+  }
+}
+
+select {
+  border: @include rem(1) solid $input-border-color;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"] {
+  padding: @include rem(3);
+}
+
+textarea {
+  padding-left: @include rem(3);
+  width: 100%;
+}

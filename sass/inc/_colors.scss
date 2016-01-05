@@ -1,0 +1,46 @@
+// Basic colors
+$bg-color: #fff;
+$border-color: #f9f9f9;
+$text-color: #575757;
+
+// Theme colors
+$primary-color: #006DE8;
+$primary-dark-color: #004C9E;
+$primary-light-color: #0CBEFF;
+
+$secondary-color: #00FFB8;
+$secondary-dark-color: #00E7E8;
+$secondary-light-color: #00E7E8;
+
+// Message colors
+$success-color: #0AA84A;
+$success-dark-color: #06692E;
+$danger-color: #F5665D;
+$danger-dark-color: #B5372F;
+
+// Link colors
+$link-color: $primary-color;
+$link-color-hover: $primary-light-color;
+$link-color-bg: $bg-color;
+
+// Button colors
+$button-bg-color: #999;
+$button-bg-color-hover: #777;
+$button-bg-color-focus: #444;
+
+$button-border-color: #000;
+$button-border-color-hover: #fff;
+
+$button-text-color: #000;
+
+// Input colors
+$input-text-color: #545454;
+$input-text-color-focus: $primary-color;
+
+$input-border-color: $border-color;
+$input-border-color-focus: $primary-color;
+
+
+// Code, mark, ins colors
+$pre-bg-color: #eee;
+$ins-bg-color: #fff9c0;

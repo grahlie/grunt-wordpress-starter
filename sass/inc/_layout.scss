@@ -1,0 +1,144 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: $bg-color;
+}
+
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+  @include clearfix;
+}
+
+// Main layout
+.content-area {
+  float: left;
+  margin: 0 (-$site-sidebar) 0 0;
+  width: $site-main;
+}
+
+.site-main {
+  margin: 0 $site-sidebar 0 0;
+}
+
+.site-content .widget-area {
+  float: right;
+  overflow: hidden;
+  width: $site-sidebar;
+}
+
+.site-footer {
+  clear: both;
+  width: $site-main;
+}
+
+// Sidebar layout
+.content-area {
+  float: right;
+  margin: 0 0 0 (-$site-sidebar);
+  width: $site-main;
+}
+
+.site-main {
+  margin: 0 0 0 $site-sidebar;
+}
+
+.site-content .widget-area {
+  float: left;
+  overflow: hidden;
+  width: $site-sidebar;
+}
+
+.site-footer {
+  clear: both;
+  width: $site-main;
+}
+
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+  display: none;
+}
+
+// Widgets
+.widget {
+  margin: 0 0 1.5rem;
+
+  select {
+    max-width: 100%;
+  }
+}
+
+
+// Post & Pages layout
+.sticky {
+  display: block;
+}
+
+.hentry {
+  margin: 0 0 1.5rem;
+}
+
+.byline,
+.updated:not(.published){
+  display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+  display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+  margin: 1.5rem 0 0;
+}
+
+.page-links {
+  clear: both;
+  margin: 0 0 1.5rem;
+}
+
+// Text layout
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 1.5rem;
+}
+
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 1.5rem;
+}
+
+.aligncenter {
+  clear: both;
+  @include center-block;
+}
+
+// Comments layout
+.comment-content a {
+  word-wrap: break-word;
+}
+.bypostauthor {
+  display: block;
+}
+

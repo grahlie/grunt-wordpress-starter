@@ -1,0 +1,27 @@
+{
+  "name": "wordpress-sass-template",
+  "version": "1.0.2",
+  "description": "Boilerplate with most needed grunt libraries.",
+  "homepage": "http://grahlie.se/",
+  "author": {
+    "name": "Mathias Grahl",
+    "email": "mathias@grahlie.se"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grahlie/wordpress-sass-template"
+  },
+  "devDependencies": {
+    "browser-sync": "latest",
+    "grunt": "latest",
+    "grunt-autoprefixer": "latest",
+    "grunt-bower-task": "latest",
+    "grunt-browser-sync": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-criticalcss": "latest",
+    "grunt-webp": "latest"
+  }
+}
