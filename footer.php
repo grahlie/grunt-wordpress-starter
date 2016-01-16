@@ -1,24 +1,19 @@
 <?php
 /**
- * The template for displaying the footer.
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ * Footer page
  *
  * @package grahlie
  */
 
 ?>
 
-	</div><!-- #content -->
-
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'grahlie' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'grahlie' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'grahlie' ), 'grahlie', '<a href="http://grahlie.se" rel="designer">@grahlie</a>' ); ?>
-		</div><!-- .site-info -->
+            <p class="grahlieLogo">
+                &copy; <?php bloginfo( 'name' ); ?> -
+                <?php printf( esc_html__( 'Developed by %1$s', 'grahlie' ), '<a href="http://grahlie.se" rel="designer"><img src="' . get_template_directory_uri() . '/images/logotype_black.png" alt="grahlie" /></a>'); ?>
+            </p>
+        </div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

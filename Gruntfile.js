@@ -34,36 +34,8 @@ module.exports = function(grunt) {
         }
       }
     },
-    criticalcss: {
-      home: {
-        options: {
-          url: "http://dev." + name + ".se/index.php",
-          width: 1200,
-          height: 900,
-          outputfile: "critical/critical.css",
-          filename: "style.css",
-          buffer: 800*1024,
-          ignoreConsole: false
-        }
-      }
-      // Add more pages here "pagename: { ..content.. }"
-    },
+    
 
-
-
-    // IMAGES
-    webp: {
-      files: {
-        expand: true,
-        cwd: 'build/images/',
-        src: ['**/*.png', '**/*.jpg'],
-        dest: 'build/webp/'
-      },
-      options: {
-        quality: 90,
-        alphaQuality: 90
-      }
-    },
     
     // JS
     // Check js files for errors
@@ -95,7 +67,7 @@ module.exports = function(grunt) {
     // Watch for changes in js and scss files
     watch: {
       css: {
-        files: ['sass/style.scss'],
+        files: ['sass/inc/*.scss'],
         tasks: ['sass:dev', 'autoprefixer']
       },
       js: {
@@ -130,6 +102,5 @@ module.exports = function(grunt) {
   // GRUNT TRIGGERS
   grunt.registerTask('dev', ['jshint', 'uglify:dev', 'sass:dev', 'autoprefixer', 'browserSync', 'watch']);
   grunt.registerTask('production', ['jshint', 'uglify:production', 'sass:production', 'autoprefixer', 'watch']);
-  grunt.registerTask('css', ['criticalcss']);
 
 }

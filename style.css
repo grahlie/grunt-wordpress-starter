@@ -686,3 +686,12 @@ object {
 /* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
 .infinity-end.neverending .site-footer {
   display: block; }
+
+.grahlieLogo {
+  line-height: 80px; }
+  .grahlieLogo a {
+    width: 80px;
+    height: 80px;
+    display: inline-block; }
+    .grahlieLogo a img {
+      margin: 0 0 -1rem .5rem; }

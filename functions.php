@@ -22,7 +22,7 @@ function grahlie_setup() {
 	 * If you're building a theme based on grahlie, use a find and replace
 	 * to change 'grahlie' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'grahlie', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'grahlie', get_template_directory() . 'languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -81,6 +81,32 @@ endif;
 add_action( 'after_setup_theme', 'grahlie_setup' );
 
 /**
+ * Remove emojis for page
+ *
+ */
+function disable_wp_emojicons() {
+  remove_action( 'admin_print_styles', 'print_emoji_styles' );
+  remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+  remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+  remove_action( 'wp_print_styles', 'print_emoji_styles' );
+  remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+  remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+  remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+
+  // remove TinyMCE emojis
+  add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
+}
+add_action( 'init', 'disable_wp_emojicons' );
+
+function disable_emojicons_tinymce( $plugins ) {
+  if ( is_array( $plugins ) ) {
+    return array_diff( $plugins, array( 'wpemoji' ) );
+  } else {
+    return array();
+  }
+}
+
+/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
@@ -116,9 +142,7 @@ add_action( 'widgets_init', 'grahlie_widgets_init' );
 function grahlie_scripts() {
 	wp_enqueue_style( 'grahlie-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'grahlie-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-	wp_enqueue_script( 'grahlie-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'grahlie-script', get_template_directory_uri() . '/js/scripts.min.js', array(), true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -127,26 +151,11 @@ function grahlie_scripts() {
 add_action( 'wp_enqueue_scripts', 'grahlie_scripts' );
 
 /**
- * Implement the Custom Header feature.
+ * Require other files
  */
+require get_template_directory() . '/inc/shortcodes.php';
 require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
 require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Custom functions that act independently of the theme templates.
- */
 require get_template_directory() . '/inc/extras.php';
-
-/**
- * Customizer additions.
- */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
 require get_template_directory() . '/inc/jetpack.php';
