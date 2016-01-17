@@ -10,10 +10,11 @@
     margin: 0;
     padding-left: 0;
 
-    ul {
+    .sub-menu {
+      background: $primary-color;
       float: left;
       position: absolute;
-      top: 1.5rem;
+      top: 3rem;
       left: -999rem;
       z-index: 99999;
 
@@ -30,7 +31,8 @@
       }
 
       a {
-        width: to-rem(200px);
+        color: $bg-color;
+        width: 15rem;
       }
 
       :hover > a,
@@ -51,20 +53,27 @@
     float: left;
     position: relative;
 
+    a {
+      display: block;
+      text-decoration: none;
+      padding: 0.5rem;
+    }
+
     &:hover > a,
     &.focus > a {
+      background: $primary-color;
+      color: $bg-color;
     }
   }
-  a {
-    display: block;
-    text-decoration: none;
-  }
+}
 
-  .current_page_item > a,
-  .current-menu-item > a,
-  .current_page_ancestor > a,
-  .current-menu-ancestor > a {
-  }
+body:not(.home) .current_page_item > a,
+body:not(.home) .current_page_parent > a,
+body:not(.home) .current-menu-item > a,
+body:not(.home) .current_page_ancestor > a,
+body:not(.home) .current-menu-ancestor > a {
+  background: $primary-color;
+  color: $bg-color;
 }
 
 /* Small menu. */

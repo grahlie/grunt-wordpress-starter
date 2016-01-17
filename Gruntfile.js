@@ -67,7 +67,7 @@ module.exports = function(grunt) {
     // Watch for changes in js and scss files
     watch: {
       css: {
-        files: ['sass/inc/*.scss'],
+        files: ['sass/*.scss', 'sass/inc/*.scss'],
         tasks: ['sass:dev', 'autoprefixer']
       },
       js: {
