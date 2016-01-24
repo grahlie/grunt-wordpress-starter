@@ -92,6 +92,7 @@ big {
 // Links
 a {
   color: $link-color;
+  transition: all .5s ease;
 
   &:visited {
     color: $link-color;

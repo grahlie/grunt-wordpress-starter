@@ -1,6 +1,10 @@
-// px to rem
-@function to-rem($pixels, $context: $font-size) {
-  @return #{$pixels/$context}rem;
+// Content and sidebar layout
+@mixin siteMain-float(){
+    @if $site-sidebar_float == 'left' {
+        float: right;
+    } @else {
+        float: left;
+    }
 }
 
 // Center block
@@ -18,13 +22,6 @@
   }
   &:after {
     clear: both;
-  }
-}
-
-// browser compatability
-@mixin prefixer($property, $value) {
-  @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
-    #{$prefix}#{$property}: $value;
   }
 }
 
@@ -48,8 +45,9 @@
 
 // border radius
 @mixin border-radius($radius){
-  @include prefixer(border-radius, $radius);
+  border-radius: $radius;
 }
 
+@import 'flexbox';
 @import 'animations';
 

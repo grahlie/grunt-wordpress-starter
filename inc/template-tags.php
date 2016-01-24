@@ -13,20 +13,21 @@ if ( ! function_exists( 'grahlie_posted_on' ) ) :
  */
 function grahlie_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		$time_string = '<time class="entry-date published" datetime="%3$s">%4$s</time>';
 	}
 
 	$time_string = sprintf( $time_string,
 		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
+		esc_html( get_the_date( 'H:i - j M, Y' ) ),
 		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
+		esc_html( get_the_modified_date( 'H:i - j M, Y' ) )
 	);
 
 	$posted_on = sprintf(
 		esc_html_x( 'Posted on %s', 'post date', 'grahlie' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+		$time_string
 	);
 
 	$byline = sprintf(
@@ -49,7 +50,7 @@ function grahlie_entry_footer() {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'grahlie' ) );
 		if ( $categories_list && grahlie_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'grahlie' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s ', 'grahlie' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 
 		/* translators: used between list items, there is a space after the comma */
@@ -99,10 +100,8 @@ function grahlie_categorized_blog() {
 	}
 
 	if ( $all_the_cool_cats > 1 ) {
-		// This blog has more than 1 category so grahlie_categorized_blog should return true.
 		return true;
 	} else {
-		// This blog has only 1 category so grahlie_categorized_blog should return false.
 		return false;
 	}
 }

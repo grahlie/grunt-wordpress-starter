@@ -28,14 +28,20 @@ body {
 }
 
 // Main layout
-.page-content, .post-content {
+.header-content, .site, .footer-content {
+  max-width: $site-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blog .post-content, .search .post-content, .post-content {
   @include siteMain-float();
   margin: 0 (-$site-sidebar) 0 0;
   width: $site-main;
 
   .site-main {
     margin: 0 $site-sidebar 0 0;
-    padding: 0 2rem;
+    padding: 0 2rem 0 0;
   }
 }
 

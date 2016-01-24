@@ -1,8 +1,17 @@
-.main-navigation {
-  clear: both;
-  display: block;
+.header-content {
+  @include clearfix();
+  height: 8rem;
+  padding-top: 2rem;
+}
+
+.site-branding {
+  display: inline-block;
   float: left;
-  width: 100%;
+  margin-right: 2rem;
+}
+
+.main-navigation {
+  float: right; 
 
   ul {
     display: none;

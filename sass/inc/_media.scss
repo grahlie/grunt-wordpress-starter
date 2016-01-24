@@ -22,12 +22,11 @@ object {
   }
 
   .wp-caption-text {
-    margin: 0.8075rem 0;
+    background: $pre-bg-color;
+    padding: .8rem;
+    font-size: 70%;
+    text-align: center;
   }
-}
-
-.wp-caption-text {
-  text-align: center;
 }
 
 .gallery {

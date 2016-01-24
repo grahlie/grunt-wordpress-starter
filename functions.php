@@ -8,13 +8,6 @@
  */
 
 if ( ! function_exists( 'grahlie_setup' ) ) :
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
 function grahlie_setup() {
 	/*
 	 * Make theme available for translation.
@@ -114,7 +107,7 @@ function disable_emojicons_tinymce( $plugins ) {
  * @global int $content_width
  */
 function grahlie_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'grahlie_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'grahlie_content_width', 1200 );
 }
 add_action( 'after_setup_theme', 'grahlie_content_width', 0 );
 
