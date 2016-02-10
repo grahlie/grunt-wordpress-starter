@@ -9,29 +9,10 @@
 
 if ( ! function_exists( 'grahlie_setup' ) ) :
 function grahlie_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on grahlie, use a find and replace
-	 * to change 'grahlie' to the name of your theme in all the template files.
-	 */
-	load_theme_textdomain( 'grahlie', get_template_directory() . 'languages' );
-
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
-
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
-	add_theme_support( 'title-tag' );
+	load_theme_textdomain( 'grahlie', get_template_directory() . '/languages' );
 
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
 
@@ -41,8 +22,7 @@ function grahlie_setup() {
 	) );
 
 	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
+	 * Switch default core markup for search form, comment form, and comments to output valid HTML5.
 	 */
 	add_theme_support( 'html5', array(
 		'search-form',
@@ -54,7 +34,6 @@ function grahlie_setup() {
 
 	/*
 	 * Enable support for Post Formats.
-	 * See https://developer.wordpress.org/themes/functionality/post-formats/
 	 */
 	add_theme_support( 'post-formats', array(
 		'aside',
@@ -74,23 +53,14 @@ endif;
 add_action( 'after_setup_theme', 'grahlie_setup' );
 
 /**
- * Remove emojis for page
+ * Remove different useless stuff from wordpress core
+ * Emojis
+ * RSS
+ * wlwmanifest
+ * feed
+ * pingback header
  *
  */
-function disable_wp_emojicons() {
-  remove_action( 'admin_print_styles', 'print_emoji_styles' );
-  remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-  remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-  remove_action( 'wp_print_styles', 'print_emoji_styles' );
-  remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-  remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-  remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
-
-  // remove TinyMCE emojis
-  add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
-}
-add_action( 'init', 'disable_wp_emojicons' );
-
 function disable_emojicons_tinymce( $plugins ) {
   if ( is_array( $plugins ) ) {
     return array_diff( $plugins, array( 'wpemoji' ) );
@@ -98,6 +68,55 @@ function disable_emojicons_tinymce( $plugins ) {
     return array();
   }
 }
+
+function disable_x_pingback( $headers ) {
+	unset( $headers['X-Pingback'] );
+	return $headers;
+}
+
+function disable_meta() {
+	// Clean up <head>
+	remove_action( 'wp_head', 'rsd_link' );
+	remove_action( 'wp_head', 'wlwmanifest_link' );
+	remove_action( 'wp_head', 'wp_shortlink_wp_head' );
+	remove_action( 'wp_head', 'wp_generator' );
+	remove_action( 'wp_head', 'start_post_rel_link' );
+	remove_action( 'wp_head', 'index_rel_link' );
+	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head' );
+	remove_action( 'wp_head', 'feed_links', 2 );
+	remove_action( 'wp_head', 'feed_links_extra', 3 );
+	remove_action( 'do_feed_rdf', 'do_feed_rdf', 10, 1 );
+	remove_action( 'do_feed_rss', 'do_feed_rss', 10, 1 );
+	remove_action( 'do_feed_rss2', 'do_feed_rss2', 10, 1 );
+	remove_action( 'do_feed_atom', 'do_feed_atom', 10, 1 ); 
+
+	// disable emoji
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+
+	// Run disable functions
+	add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
+	add_filter( 'wp_headers', 'disable_x_pingback' );
+}
+add_action( 'init', 'disable_meta' );
+
+/**
+ * Remove version on static files
+ */
+function remove_staticfiles_version( $src ) {
+	if( strpos( $src, '?ver=' ) ) {
+		$src = remove_query_arg( 'ver', $src);
+	}
+
+	return $src;
+}
+add_filter( 'style_loader_src', 'remove_staticfiles_version', 1000 );
+add_filter( 'script_loader_src', 'remove_staticfiles_version', 1000 );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -113,8 +132,6 @@ add_action( 'after_setup_theme', 'grahlie_content_width', 0 );
 
 /**
  * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function grahlie_widgets_init() {
 	register_sidebar( array(

@@ -180,6 +180,12 @@ td,
 th {
   padding: 0; }
 
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table; }
+.clearfix:after {
+  clear: both; }
+
 .site-title {
   margin-top: 0; }
 
@@ -316,6 +322,12 @@ body {
     display: table; }
   .header-content:after {
     clear: both; }
+
+.header-image {
+  background-size: cover;
+  background-position: center center;
+  height: 500px;
+  margin-bottom: 4rem; }
 
 .site-branding {
   display: inline-block;
@@ -519,6 +531,7 @@ table {
   margin: 0 0 1.5rem;
   width: 100%; }
 
+.btn,
 button,
 input[type="button"],
 input[type="reset"],
@@ -530,13 +543,16 @@ input[type="submit"] {
   color: #000;
   line-height: 1.9rem;
   padding: .6rem 1rem .4rem; }
+  .btn:hover,
   button:hover,
   input[type="button"]:hover,
   input[type="reset"]:hover,
   input[type="submit"]:hover {
     background: #777;
-    border-color: #fff; }
-  button:active, button:focus,
+    border-color: #000; }
+  .btn:active, .btn:focus,
+  button:active,
+  button:focus,
   input[type="button"]:active,
   input[type="button"]:focus,
   input[type="reset"]:active,
@@ -561,7 +577,7 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-  color: #545454;
+  color: #575757;
   border: 0.1rem solid #f9f9f9;
   border-radius: 0.3rem; }
   input[type="text"]:focus,
@@ -701,8 +717,7 @@ object {
 .grahlieLogo {
   line-height: 80px; }
   .grahlieLogo a {
-    width: 80px;
-    height: 80px;
     display: inline-block; }
     .grahlieLogo a img {
-      margin: 0 0 -1rem .5rem; }
+      margin: 0 0 -.8rem .5rem;
+      width: 50px; }

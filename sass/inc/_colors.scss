@@ -20,6 +20,8 @@ $success-color: #0AA84A;
 $success-dark-color: #06692E;
 $danger-color: #F5665D;
 $danger-dark-color: #B5372F;
+$warning-color: #FFDA59;
+$warning-dark-color: #C4A848;
 
 // Link colors
 $link-color: $primary-color;
@@ -33,13 +35,13 @@ $button-bg-color-hover: #777;
 $button-bg-color-focus: #444;
 
 $button-border-color: #000;
-$button-border-color-hover: #fff;
+$button-border-color-hover: #000;
 
 $button-text-color: #000;
 
 
 // Input colors
-$input-text-color: #545454;
+$input-text-color: $text-color;
 $input-text-color-focus: $primary-color;
 
 $input-border-color: $border-color;

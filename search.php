@@ -23,7 +23,7 @@ get_header(); ?>
 		while (have_posts()) {
 			the_post();
 
-			get_template_part( 'template-parts/content', 'search' );
+			get_template_part( 'template/content', 'search' );
 
 		}
 
@@ -31,7 +31,7 @@ get_header(); ?>
 
 	} else {
 
-		get_template_part( 'template-parts/content', 'none' );
+		get_template_part( 'template/content', 'none' );
 
 	} ?>
 

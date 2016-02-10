@@ -1,3 +1,7 @@
+.clearfix {
+    @include clearfix();
+}
+
 .site-title {
     margin-top: 0;
 }

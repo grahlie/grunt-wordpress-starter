@@ -14,28 +14,22 @@
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico" />
+<title>
+<?php
+	global $page, $paged;
+	wp_title( '|', true, 'right');
+	bloginfo( 'name' );
+?>
+</title>
 
 <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'grahlie' ); ?></a>
 
 <header id="pageHeader" class="site-header" role="banner">
-	<div class="header-content">
-		<div class="site-branding">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-		</div>
-
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'grahlie' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav>
-	</div>
-
-	<!-- slider here later on -->
+	<?php require_once( 'headerContent.php' ); ?>
 </header>
 
 <div id="pageContent" class="site">

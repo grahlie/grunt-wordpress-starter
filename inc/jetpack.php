@@ -33,9 +33,9 @@ function grahlie_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
 		if ( is_search() ) :
-		    get_template_part( 'template-parts/content', 'search' );
+		    get_template_part( 'template/content', 'search' );
 		else :
-		    get_template_part( 'template-parts/content', get_post_format() );
+		    get_template_part( 'template/content', get_post_format() );
 		endif;
 	}
 }
