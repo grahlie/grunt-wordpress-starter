@@ -9,10 +9,12 @@ $hr-color: #505050;
 $primary-color: #006DE8;
 $primary-dark-color: #004C9E;
 $primary-light-color: #0CBEFF;
+$primary-text-color: #fff;
 
 $secondary-color: #00FFB8;
 $secondary-dark-color: #00E7E8;
 $secondary-light-color: #00E7E8;
+$secondary-text-color: #fff;
 
 
 // Message colors
@@ -22,6 +24,8 @@ $danger-color: #F5665D;
 $danger-dark-color: #B5372F;
 $warning-color: #FFDA59;
 $warning-dark-color: #C4A848;
+
+$message-text-color: #fff;
 
 // Link colors
 $link-color: $primary-color;

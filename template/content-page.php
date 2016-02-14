@@ -31,7 +31,7 @@
 				sprintf(
 					/* translators: %s: Name of current post */
 					esc_html__( 'Edit %s', 'grahlie' ),
-					the_title( '<span class="screen-reader-text">"', '"</span>', false )
+					the_title( '', '', false )
 				),
 				'<span class="edit-link">',
 				'</span>'

@@ -1,53 +1,9 @@
-// Content and sidebar layout
-@mixin siteMain-float(){
-    @if $site-sidebar_float == 'left' {
-        float: right;
-    } @else {
-        float: left;
-    }
-}
-
-// Center block
-@mixin center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-// Clearfix
-@mixin clearfix() {
-  &:before,&:after {
-    content: "";
-    display: table;
-  }
-  &:after {
-    clear: both;
-  }
-}
-
-// media querys
-@mixin breakpoint($point) {
-  @if $point == large {
-    @media (min-width: 800px) { @content; }
-  }
-  @else if $point == medium {
-    @media (min-width: 750px) { @content; }
-  }
-  @else if $point == small {
-    @media (min-width: 10em) { @content; }
-  }
-}
-
-// box sizing
-@mixin box-sizing($box){
-  box-sizing: $box;
-}
-
 // border radius
 @mixin border-radius($radius){
   border-radius: $radius;
 }
 
-@import 'flexbox';
-@import 'animations';
+@import 'mixins/flexbox';
+@import 'mixins/layout';
+@import 'mixins/animations';
 

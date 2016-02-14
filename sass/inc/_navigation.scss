@@ -7,8 +7,9 @@
 .header-image {
   background-size: cover;
   background-position: center center;
-  height: 500px;
+  height: 50rem;
   margin-bottom: 4rem;
+  padding: 2rem 2rem 0;
 }
 
 .site-branding {
@@ -17,14 +18,22 @@
   margin-right: 2rem;
 }
 
-.main-navigation {
-  float: right; 
+#nav-trigger {
+  display: none;
+  visibility: hidden;
+}
 
-  ul {
-    display: none;
+@include breakpoint(screen) {
+  .main-navigation ul {
     list-style: none;
     margin: 0;
+    padding: 0;
+  }
+
+  .navigation {
+    margin: 0;
     padding-left: 0;
+    float: right;
 
     .sub-menu {
       background: $primary-color;
@@ -50,80 +59,112 @@
         color: $bg-color;
         width: 15rem;
       }
-
-      :hover > a,
-      .focus > a {
-      }
-
-      a:hover,
-      a.focus {
-      }
     }
 
     li:hover > ul,
     li.focus > ul {
       left: auto;
     }
-  }
-  li {
-    float: left;
-    position: relative;
 
-    a {
-      display: block;
+    li {
+      float: left;
+      position: relative;
+
+      a {
+        display: block;
+        text-decoration: none;
+        padding: 0.5rem;
+      }
+
+      &:hover > a,
+      &.focus > a {
+        background: $primary-color;
+        color: $bg-color;
+      }
+    }
+  }
+
+  body:not(.home) .current_page_item > a,
+  body:not(.home) .current_page_parent > a,
+  body:not(.home) .current-menu-item > a,
+  body:not(.home) .current_page_ancestor > a,
+  body:not(.home) .current-menu-ancestor > a {
+    background: $primary-color;
+    color: $bg-color;
+  }
+}
+
+/* Mobile navigation */
+@include breakpoint(phone-and-tablet) {
+  #nav-trigger:checked ~ .navigation {
+    visibility: visible;
+    background: $primary-color;
+    transform: translate(0, 0);
+
+    li, li a {
+      visibility: visible;
+    }
+  }
+
+  #nav-trigger:checked ~ #navopen {
+    background: $primary-color;
+    right: 24rem;
+
+    &::before, &::after {
+      top: 45%;
+      transform: rotate(45deg);
+      box-shadow: none;
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  #navopen {
+    background: $primary-color;
+    width: 8rem;
+    height: 8rem;
+    margin-top: -2rem;
+    position: fixed;
+    right: 0;
+    cursor: pointer;
+    @include transition(0.5s);
+
+    &::before, &::after {
+      width: 3rem;
+      height: 0.2rem;
+      content: '';
+      position: absolute;
+      left: 30%;
+      top: 2.7rem;
+      background: $primary-text-color;
+      box-shadow: 0 0.8rem 0 0 $primary-text-color,0 1.6rem 0 0 $primary-text-color;
+    }
+  }
+
+  .navigation {
+    visibility: hidden;
+    width: 24rem;
+    height: 100%;
+    padding: 2rem 2rem;
+    margin-top: -2rem;
+    list-style: none;
+    position: fixed;
+    right: 0;
+    transform: translate(100%, 0);
+    @include transition(0.5s);
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0 2rem;
+    }
+
+    a, a:visited {
       text-decoration: none;
-      padding: 0.5rem;
+      color: $primary-text-color;
+      @include transition(0.5s);
     }
-
-    &:hover > a,
-    &.focus > a {
-      background: $primary-color;
-      color: $bg-color;
-    }
-  }
-}
-
-body:not(.home) .current_page_item > a,
-body:not(.home) .current_page_parent > a,
-body:not(.home) .current-menu-item > a,
-body:not(.home) .current_page_ancestor > a,
-body:not(.home) .current-menu-ancestor > a {
-  background: $primary-color;
-  color: $bg-color;
-}
-
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-  display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-  .menu-toggle {
-    display: none;
-  }
-  .main-navigation ul {
-    display: block;
-  }
-}
-
-.comment-navigation,
-.posts-navigation,
-.post-navigation {
-
-  .site-main & {
-    margin: 0 0 1.5rem;
-    overflow: hidden;
-  }
-
-  .nav-previous {
-    float: left;
-    width: 50%;
-  }
-
-  .nav-next {
-    float: right;
-    text-align: right;
-    width: 50%;
   }
 }

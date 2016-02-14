@@ -162,6 +162,11 @@ function grahlie_scripts() {
 add_action( 'wp_enqueue_scripts', 'grahlie_scripts' );
 
 /**
+ * Include grahlie framework
+ */
+require get_template_directory() . '/framework/init.php';
+
+/**
  * Require other files
  */
 require get_template_directory() . '/inc/shortcodes.php';

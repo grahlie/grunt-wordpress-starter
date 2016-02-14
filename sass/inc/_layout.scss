@@ -23,15 +23,22 @@ body {
 .site-content:before,
 .site-content:after,
 .site-footer:before,
-.site-footer:after {
+.site-footer:after,
+.hentry {
   @include clearfix;
 }
 
 // Main layout
 .header-content, .site, .footer-content {
+  @include breakpoint(screen-large) {
+    max-width: $site-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   max-width: $site-width;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .blog .post-content, .search .post-content, .post-content {
@@ -39,9 +46,11 @@ body {
   margin: 0 (-$site-sidebar) 0 0;
   width: $site-main;
 
-  .site-main {
-    margin: 0 $site-sidebar 0 0;
-    padding: 0 2rem 0 0;
+  @include breakpoint(tablet-up) {
+    .site-main {
+      margin: 0 $site-sidebar 0 0;
+      padding: 0 2rem 0 0;
+    }
   }
 }
 
@@ -52,9 +61,18 @@ body {
 
 // Sidebar layout
 .widget-area {
-  float: $site-sidebar_float;
-  overflow: hidden;
-  width: $site-sidebar;
+  display: none;
+  visibility: hidden;
+}
+
+@include breakpoint(tablet-up) {
+  .widget-area {
+    float: $site-sidebar_float;
+    overflow: hidden;
+    width: $site-sidebar;
+    display: block;
+    visibility: visible;
+  }
 }
 
 .blog .format-aside .entry-title,
@@ -62,7 +80,6 @@ body {
   display: none;
 }
 
-// Widgets
 .widget {
   margin: 0 0 1.5rem;
 

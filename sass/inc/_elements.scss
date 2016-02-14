@@ -79,6 +79,51 @@ input[type="submit"] {
   }
 }
 
+.btn.btn-primary {
+  background: $primary-color;
+  color: $primary-text-color;
+
+  &:hover {
+    background: $primary-dark-color;
+  }
+}
+
+.btn.btn-secondary {
+  background: $secondary-color;
+  color: $secondary-text-color;
+
+  &:hover {
+    background: $secondary-dark-color;
+  }
+}
+
+.btn.btn-success {
+  background: $success-color;
+  color: $message-text-color;
+
+  &:hover {
+    background: $success-dark-color;
+  }
+}
+
+.btn.btn-warning {
+  background: $warning-color;
+  color: $message-text-color;
+
+  &:hover {
+    background: $warning-dark-color;
+  }
+}
+
+.btn.btn-danger {
+  background: $danger-color;
+  color: $message-text-color;
+
+  &:hover {
+    background: $danger-dark-color;
+  }
+}
+
 // Inputs
 input[type="text"],
 input[type="email"],

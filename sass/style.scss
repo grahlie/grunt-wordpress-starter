@@ -2,7 +2,7 @@
 Theme Name: grahlie
 Author: @grahlie
 Author URI: http://grahlie.se
-Description: Röös Mekaniska AB
+Description: Standard theme
 Version: 1.0.0
 Text Domain: grahlie
 Tags:
@@ -13,12 +13,11 @@ Tags:
 
 @import "normalize";
 
-@import "inc/default";
 @import "inc/layout";
 @import "inc/navigation";
 @import "inc/text";
 @import "inc/elements";
 @import "inc/media";
-@import "inc/screenreader";
-@import "inc/infinite-scroll";
+//@import "inc/infinite-scroll";
 @import "inc/grahlie";
+@import "inc/default";
