@@ -8,6 +8,8 @@ function grahlie_admin_page() {
 		$tab = 'theme_options';
 	} ?>
 
+<?php print_r(get_option('grahlie_framework_values')); ?>
+
 	<div id="grahlie-messages">
 		<?php if(isset($_GET['activated'])){ ?>
 			<div class="grahlie-updated" id="active">
@@ -24,7 +26,8 @@ function grahlie_admin_page() {
 		<form method="post" action="<?php echo site_url() .'/wp-admin/admin-ajax.php'; ?>" enctype="multipart/form-data">
 			<header>
 				<a class="author_logo" href="<?php echo $grahlie_options['theme_authorURI']; ?>" alt="<?php echo $grahlie_options['theme_author']; ?>" target="_blank">
-					<img src="<?php echo GRAHLIE_URL .'/images/grahlie.svg'; ?>" alt="<?php $grahlie_options['theme_author'] ?>">
+					<?php $logo_svg = file_get_contents(GRAHLIE_URL . "/images/grahlie.svg"); ?>
+					<?php echo $logo_svg; ?>
 				</a>
 				<h1 class="theme_logo">
 					<?php echo $grahlie_options['theme_name']; ?>

@@ -64,7 +64,7 @@
 	color: #fff;
 }
 .grahlie-button-primary {
-	background: #1abc9c;
+	background: #EE5D47;
 	padding: 1em 1.5em;
 	border: none;
 	cursor: pointer;
@@ -74,19 +74,26 @@
 	float: right;
 }
 header {
-	background: #2c3e50;
-	border: 1px solid #2c3e50;
+	background: #EE5D47;
+	border: 1px solid #EE5D47;
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
 	padding: 1em 2em;
 	color: #fff;
 }
 header .theme_logo {
 	color: #fff;
 }
-header .author_logo img {
+header .author_logo {
 	width: 150px;
 	height: 130px;
 	cursor: pointer;
 	float: right;
+}
+header .author_logo svg {
+	width: 150px;
+	height: 130px;
+	fill: #fff;
 }
 header h1 {
 	display: inline-block;
@@ -99,6 +106,8 @@ header span {
 .main {
 	background: #ecf0f1;
 	position: relative;
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
 }
 .main .tabs {
 	position: absolute;
@@ -116,16 +125,16 @@ header span {
 	padding: 0;
 }
 .main .tabs ul li a {
-	background: #16a085;
+	background: #bdc3c7;
 	display: block;
 	height: 80px;
 	line-height: 75px;
 	padding: 12px;
-	color: #ecf0f1;
+	color: #fff;
 	text-decoration: none;
 }
 .main .tabs ul li .active {
-	background: #1abc9c;
+	background: #EE5D47;
 	width: 161px;
 	position: relative;
 	z-index: 9;

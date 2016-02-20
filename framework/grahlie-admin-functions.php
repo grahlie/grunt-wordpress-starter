@@ -5,52 +5,55 @@
 
 // Fixa första funktionen med standard array med options
 function grahlie_create_framework_page(){
+	$pages = get_pages();
+
 	$framework_init = array(
 		0 => array(
 			'title' => 'Theme Options',
-			'desc'	=> 'This is standard settings for the theme.',
+			'desc'	=> 'Your standard settings for your site.',
 			'id'	=> 'theme_options',
 			0 => array(
-				'title' 	=> 'Logotype',
-				'desc'  	=> 'This is your logotype',
-				'type'  	=> 'file',
-				'id'    	=> 'logotype_file',
-				'val'		=> 'Upload image'
+				'title' 	=> 'Use logotype',
+				'desc'		=> 'If you want to use logotype in header check this box.',
+				'type'		=> 'checkbox',
+				'id'			=> 'use_logotype'
 			),
 			1 => array(
-				'title' 	=> 'Show something',
-				'desc'		=> 'This is an example for the framework',
-				'type'		=> 'text',
-				'id'		=> 'example_text_field'
+				'title' 	=> 'Logotype',
+				'desc'  	=> 'Upload your logotype here.',
+				'type'  	=> 'file',
+				'id'    	=> 'logotype_file',
+				'val'			=> 'Upload image'
 			),
 			2 => array(
-				'title' 	=> 'Show something',
-				'desc'		=> 'This is an example for the framework',
-				'type'		=> 'checkbox',
-				'id'		=> 'example_checkbox_field'
-			),
-			3 => array(
-				'title' 	=> 'Select example',
-				'desc' 		=> 'This is select',
-				'type' 		=> 'select',
-				'id'		=> 'example_select_field',
-				'options' 	=> array(
-							'option1' => 'option one',
-							'option2' => 'optione two',
-							'option3' => 'option three',
-						)
-			),
-			4 => array(
-				'title' 	=> 'Textarea example',
-				'desc'		=> 'This is a textarea',
-				'type'		=> 'textarea',
-				'id'		=> 'example_textarea_field'
+				'title' 	=> 'Google Analytics',
+				'desc'		=> 'Your Google analytics code.',
+				'type'		=> 'text',
+				'id'			=> 'google_analytics'
 			)
 		),
 		1 => array(
-			'title' => 'Test page',
-			'desc'  => 'This is another page',
-			'id'	=> 'test_page'
+			'title' => 'Frontpage Options',
+			'desc'  => 'Settings for your frontpage.',
+			'id'	=> 'test_page',
+			0 => array(
+				'title' 	=> 'Showcase pages on firstpage',
+				'desc'		=> 'Check this box if you want pages to show up on frontpage.',
+				'type'		=> 'checkbox',
+				'id'			=> 'use_pages'
+			),
+			1 => array (
+				'title'		=> 'How many pages',
+				'desc'		=> 'Choose how many pages you want on frontpage.',
+				'type' 		=> 'radio',
+				'id' 			=> 'use_pages_count',
+				'options' => array (
+					'option1' => 'one',
+					'option2' => 'two',
+					'option3' => 'three',
+					'option4' => 'four'
+				)
+			)
 		)
 	);
 
@@ -90,12 +93,31 @@ function grahlie_create_input($item){
 	}
 
 	// Radio
-	if($item['type']=='radio'){
+	if($item['type']=='radio' && array_key_exists('options', $item)){
+		$i = 1;
+		foreach($item['options'] as $key => $value){
+			echo '<br>'.$grahlie_values[$item['id']];
+			echo '<br>' .$key . '<br>';
+			// if( array_key_exists($item['id'], $grahlie_values) ) {
+				if($key == $grahlie_values[$item['id']]) $val = ' checked="checked"';
+			// } else {
+			// 	if(array_key_exists('val', $item) && $item['val'] == $key) $val = ' checked="checked"';
+			// }
 
+ 			echo '<label for="'. $item['id'] .'_'. $i .'"><input type="radio" id="' . $item['id'] .'_'. $i .'" name="' . $name . '" value="' . $key . '" '. $val .'>' . __($value, 'grahlie') .'</label>';
+ 			$i++;
+		}
+		// if($item['val'] === '' || empty($item['val'])) $item['val'] = 1;
+
+		// // maybe do this better later on restricted to 4 now
+		// for ($i=1; $i <= 4 ; $i++) { 
+		// 	echo '<label for="'. $i .'"><input type="radio" id="' . $i .'" name="' . $name . '" value="' . $i . '">' . $i .'</label>';
+		// }
 	}
 
 	// Select
 	if($item['type']=='select' && array_key_exists('options', $item)){
+		print_r($item['options']);
 		echo '<select id="'.$item['id'].'" name="'.$name.'">';
 		foreach ($item['options'] as $key => $value) {
 			$val = '';
