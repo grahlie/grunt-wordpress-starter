@@ -164,6 +164,10 @@ header span {
 	height: 3rem;
 	border-radius: 4px;
 }
+.main .content .content-settings .input .input_radio {
+	display: block;
+	margin: 1rem 0;
+}
 .main .content .content-settings .input .upload-img {
 	max-width: 100%;
 	margin: 1em 0;

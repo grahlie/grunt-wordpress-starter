@@ -51,7 +51,7 @@ function grahlie_admin_page() {
 								<hr />
 								<?php foreach ($page as $item) { ?>
 									<?php if(is_array($item)) : ?>
-										<div class="content-settings clearfix">
+										<div class="content-settings clearfix <?php echo $item['id']; ?>">
 											<div class="info">
 												<h3><?php _e($item['title'], 'grahlie'); ?></h3>
 												<p class="desc"><?php if(isset($item['desc'])) _e($item['desc'], 'grahlie'); ?></p>
