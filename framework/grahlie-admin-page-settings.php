@@ -56,9 +56,13 @@ function grahlie_admin_page() {
 												<h3><?php _e($item['title'], 'grahlie'); ?></h3>
 												<p class="desc"><?php if(isset($item['desc'])) _e($item['desc'], 'grahlie'); ?></p>
 											</div>
-											<div class="input">
+											<?php if($item['type'] === 'radio_select') { ?>
 												<?php echo grahlie_create_input($item); ?>
-											</div>
+											<?php } else { ?>
+												<div class="input">
+													<?php echo grahlie_create_input($item); ?>
+												</div>
+											<?php } ?>
 										</div>
 									<?php endif; ?>
 								<?php } ?>
@@ -162,3 +166,19 @@ function grahlie_remove_file(){
 	die;
 }
 add_action('wp_ajax_grahlie_remove_file', 'grahlie_remove_file');
+
+// Get pages function
+function grahlie_get_pages() {
+	$response['error'] = false;
+	$response['message'] = '';
+
+	$pages = get_pages();
+
+	foreach ($pages as $key => $page) {
+		$response['list'][] = $page->post_title;
+	}
+
+	echo json_encode($response);
+	die;
+}
+add_action('wp_ajax_grahlie_get_pages', 'grahlie_get_pages');

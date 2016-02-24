@@ -135,6 +135,7 @@ function grahlie_create_input($item){
 	*/
 	if( $item['type'] == 'radio_select' && array_key_exists( 'options', $item ) ){
 		$i = 1;
+		$output = '<div class="input">';
 
 		foreach($item['options'] as $key => $value){
 			if( array_key_exists($item['id'], $grahlie_values) && $key == $grahlie_values[$item['id']] ) {
@@ -143,35 +144,65 @@ function grahlie_create_input($item){
 				$val = '';
 			}
 
- 			echo '<label class="input_radio" for="'. $item['id'] .'_'. $i .'"><input type="radio" id="' . $item['id'] .'_'. $i .'" name="' . $name . '" value="' . $key . '" '. $val .'>' . __($value, 'grahlie') .'</label>';
+ 			$output .= '<label class="input_radio" for="'. $item['id'] .'_'. $i .'"><input type="radio" id="' . $item['id'] .'_'. $i .'" name="' . $name . '" value="' . $key . '" '. $val .'>' . __($value, 'grahlie') .'</label>';
  			$i++;
 		}
 
+		$output .= '</div>';
+
 		// This doesnt work FIX
 		$select_name = 'grahlie_framework_values[' . $item['id'] .'_select]';
-		echo '<div class="info"><h3>Which pages to show</h3><p class="desc">Select the pages you want to show up.</p></div><div class="input"><select id="' . $item['id'] . '_select" name="' . $select_name . '">';
+		$output .= '<div id="radio_select"><div class="info"><h3>Which pages to show</h3><p class="desc">Select the pages you want to show up.</p></div><div class="input"></div></div>';
+
+		foreach ( $pages as $key => $page ) {
+			$option[$key] = $page->post_title;
+		}
 
 		// check if value then run js function
 		?>
 		<script type='text/javascript'>
 			jQuery(document).ready(function($){
 				$(".input_radio").click(function () {
-					var val 	= $(this).find("input:checked").val(),
-						name 	= "<?php echo $item['id']; ?>_select",
-						id 		= "grahlie_framework_values[<?php echo $item['id']; ?>_select]";
-
-					console.log(val);
-					// console.log($(".<?php echo $item['id']; ?>"));
+					var val     = $(this).find("input:checked").val(),
+						data 	= new FormData();
 
 					for (var i = 0; i < val; i++) {
-						// console.log(i);
+						var id 	 = "<?php echo $item['id']; ?>_select_",
+							name = "grahlie_framework_values[<?php echo $item['id']; ?>_select_" + i + "]";
 
+						if($("#" + id + i).length === 0) {
+	                		$("#radio_select .input").append('<select id="' + id + i +'" name="' + name + '"></select>');
+	                	}
 
-					}
+	                	// check to remove also
+	                }
 
-					
+					data.append("action", "grahlie_get_pages");
+					$.ajax({
+						url: "<?php echo site_url(); ?>/wp-admin/admin-ajax.php", 
+						type: "POST", 
+						data: data,
+						cache: false,
+						processData: false, 
+						contentType: false,
+						dataType: "json",
 
-					$(".<?php echo $item['id']; ?>").append(output);
+						success: function(data){
+							// check this for a key
+							data.list.forEach(function(page){
+
+								for (var i = 0; i < val; i++) {
+									console.log(i);
+									$('#' + id + i).append('<option value="' + i + '">' + page + '</option>');
+		            			}
+
+							});
+						},
+						error: function(data){
+							$("#grahlie-messages #message p").html('error');
+							$("#grahlie-messages").css("display", "block");
+						}
+					});
 				});
 			});
 
@@ -179,7 +210,7 @@ function grahlie_create_input($item){
 		</script>
 		<?php
 
-		echo '</select></div>';
+		return $output;
 	}
 
 	// Select
