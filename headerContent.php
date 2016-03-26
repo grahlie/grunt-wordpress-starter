@@ -30,4 +30,6 @@
 
 <?php } ?>
 
+<?php echo grahlie_use_pages(); ?>
+
 <!-- slider here later on -->

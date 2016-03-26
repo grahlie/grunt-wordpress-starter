@@ -2,13 +2,13 @@
 function grahlie_admin_page() {
 	$grahlie_options = get_option('grahlie_framework_options'); ?>
 
+	<?php print_r(get_option('grahlie_framework_values')); ?>
+
 	<?php if(isset($_GET['tab'])){
 		$tab = $_GET[ 'tab' ];
 	} else {
 		$tab = 'theme_options';
 	} ?>
-
-<?php print_r(get_option('grahlie_framework_values')); ?>
 
 	<div id="grahlie-messages">
 		<?php if(isset($_GET['activated'])){ ?>
@@ -53,19 +53,9 @@ function grahlie_admin_page() {
 								<hr />
 
 								<?php foreach ($page as $item) { ?>
-		
 									<?php if(is_array($item)) { ?>
 
-										<div class="content-settings clearfix <?php echo $item['id']; ?>">
-											<div class="info">
-												<h3><?php _e($item['title'], 'grahlie'); ?></h3>
-												<p class="desc"><?php if(isset($item['desc'])) _e($item['desc'], 'grahlie'); ?></p>
-											</div>
-
-											<div class="input">
-												<?php echo grahlie_create_input($item); ?>
-											</div>
-										</div>
+										<?php echo grahlie_create_output($item); ?>
 
 									<?php } ?>
 								<?php } ?>

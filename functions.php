@@ -164,14 +164,6 @@ add_action( 'wp_enqueue_scripts', 'grahlie_scripts' );
 /**
  * Include grahlie framework
  */
-require get_template_directory() . '/framework/init.php';
-
-/**
- * Require other files
- */
-require get_template_directory() . '/inc/shortcodes.php';
-require get_template_directory() . '/inc/custom-header.php';
-require get_template_directory() . '/inc/template-tags.php';
-require get_template_directory() . '/inc/extras.php';
-require get_template_directory() . '/inc/customizer.php';
-require get_template_directory() . '/inc/jetpack.php';
+$tempdir = get_template_directory();
+require $tempdir . '/framework/init.php';
+require $tempdir . '/inc/init.php';
