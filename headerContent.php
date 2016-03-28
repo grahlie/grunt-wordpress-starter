@@ -1,8 +1,14 @@
-<?php if ( get_header_image() ) { ?>
+<?php
+/**
+ * The headerContent file, containing the head of the pages
+ * @package grahlie
+ */
+
+if ( get_header_image() ) { ?>
 
     <div class="header-image" style="background-image: url('<?php header_image(); ?>');">
         <div class="site-branding">
-            <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+            <?php echo grahlie_use_logotype(); ?>
         </div>
 
         <nav id="site-navigation" class="main-navigation" role="navigation">
@@ -17,7 +23,7 @@
 
     <div class="header-content">
         <div class="site-branding">
-            <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+            <?php echo grahlie_use_logotype(); ?>
         </div>
 
         <nav id="site-navigation" class="main-navigation" role="navigation">
@@ -29,7 +35,5 @@
     </div>
 
 <?php } ?>
-
-<?php echo grahlie_use_pages(); ?>
 
 <!-- slider here later on -->

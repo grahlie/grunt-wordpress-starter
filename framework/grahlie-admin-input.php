@@ -188,7 +188,7 @@ function grahlie_create_input($item, $parent){
                                 $("#grahlie-messages #message p").html(data.message);
                                 $("#grahlie-messages").css("display", "block");
 
-                                if(type && type == 'jpg' || type == 'png' || type == 'jpeg' || type == 'gif') {
+                                if(type && type == 'jpg' || type == 'png' || type == 'jpeg' || type == 'gif' || type == 'svg') {
                                     $("#upload_<?php echo $item['id']; ?>_preview").html('<img class="upload-img" src="<?php echo $wp_upload_dir["url"]; ?>/' + name + '" alt="' + name + '" />');
                                 } else {
                                     $("#upload_<?php echo $item['id']; ?>_preview").text("<?php echo $wp_upload_dir['url']; ?>/" + name);

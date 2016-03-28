@@ -2,8 +2,6 @@
 function grahlie_admin_page() {
 	$grahlie_options = get_option('grahlie_framework_options'); ?>
 
-	<?php print_r(get_option('grahlie_framework_values')); ?>
-
 	<?php if(isset($_GET['tab'])){
 		$tab = $_GET[ 'tab' ];
 	} else {

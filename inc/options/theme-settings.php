@@ -30,7 +30,7 @@ function grahlie_theme_settings(){
                                 
     $theme_options[] = array(
         'title'     => 'Custom Favicon Upload',
-        'desc'      => 'Upload a 16x16 png as your favicon',
+        'desc'      => 'Upload a 32x32 png file as your favicon',
         'type'      => 'file',
         'id'        => 'favicon_file',
         'val'       => 'Upload Image'
@@ -54,7 +54,61 @@ function grahlie_theme_settings(){
     grahlie_add_framework_page( 'Theme Options', $theme_options );
 }
 
-// Frontend functions
+/**
+ * Output the logotype defined in framework pages
+ */
+function grahlie_use_logotype(){
+    $grahlie_values = get_option( 'grahlie_framework_values' );
+    $output = '<h1 class="site-title"><a href="' . esc_url( home_url( '/' ) ) . '" rel="home">';
 
+    if(array_key_exists('use_logotype', $grahlie_values) && $grahlie_values['use_logotype'] == 'on' && $grahlie_values['logotype_file'] != '') {
+        $output .= '<img src="' . $grahlie_values['logotype_file'] . '" />';
+    } else {
+        $output .= get_bloginfo( 'name' );
+    }
+
+    $output .= '</a></h1>';
+
+    return $output;
+}
+
+/**
+ * Output the favicon defined in framework pages
+ */
+function grahlie_use_favicon(){
+    $grahlie_values = get_option( 'grahlie_framework_values' );
+    $output = '';
+
+    if( array_key_exists('favicon_file', $grahlie_values) && $grahlie_values['favicon_file'] != '' ){
+        $output .= '<link rel="shortcut icon" href="' . $grahlie_values['favicon_file'] . '" />';
+    } 
+
+    return $output; 
+}
+
+/**
+ * Output the analytics code defined in framework pages
+ */
+function grahlie_use_analytics(){
+    $grahlie_values = get_option( 'grahlie_framework_values' );
+    $output = '';
+
+    if( array_key_exists('google_analytics', $grahlie_values) && $grahlie_values['google_analytics'] != '' ) {
+        $output .= "
+            <script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                ga('create', '" . $grahlie_values['google_analytics'] . "', 'auto');
+                ga('send', 'pageview');
+
+                </script>
+            ";
+    }
+
+    return $output;
+}
 
 ?>

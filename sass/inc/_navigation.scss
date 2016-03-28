@@ -126,7 +126,7 @@
     width: 8rem;
     height: 8rem;
     margin-top: -2rem;
-    position: fixed;
+    position: absolute;
     right: 0;
     cursor: pointer;
     @include transition(0.5s);

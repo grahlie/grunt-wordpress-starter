@@ -45,12 +45,10 @@ function grahlie_frontpage_settings(){
     grahlie_add_framework_page( 'Frontpage Options', $frontpage_options );
 }
 
-// Frontend functions
-
 /**
  * Output pages defined in framework
  */
-function grahlie_use_pages(){
+function grahlie_use_pages($class = null){
 
     $grahlie_values = get_option( 'grahlie_framework_values' );
     $output = '';
@@ -61,9 +59,10 @@ function grahlie_use_pages(){
 
             $page  = get_post($grahlie_values['use_pages_select'][$i]);
             $thumb = get_the_post_thumbnail($page->ID);
+            $size  = 'size' . 12/$grahlie_values['use_pages_count'];
 
             $output .= '
-                <div class="usePagesBox">
+                <div class="grahlieBox' . $class . ' ' . $size . '">
                 <article>' . $thumb . '
                     <h2>' . $page->post_title . '</h2>
                     <p>' . $page->post_excerpt . '</p>

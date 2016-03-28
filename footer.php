@@ -1,7 +1,6 @@
 <?php
 /**
  * Footer page
- *
  * @package grahlie
  */
 
@@ -18,6 +17,8 @@
 </footer>
 
 <?php wp_footer(); ?>
+
+<?php echo grahlie_use_analytics(); ?>
 
 </body>
 </html>

@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "browser-sync": "latest",
+    "bulma": "0.0.17",
     "grunt": "latest",
     "grunt-autoprefixer": "latest",
     "grunt-browser-sync": "latest",
