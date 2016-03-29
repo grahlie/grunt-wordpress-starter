@@ -4,9 +4,9 @@
  * @package grahlie
  */
 
-if ( get_header_image() ) { ?>
-
-    <div class="header-image" style="background-image: url('<?php header_image(); ?>');">
+if ( get_the_post_thumbnail($post->ID) ) { ?>
+    
+    <div class="header-image" style="background-image: url('<?php the_post_thumbnail_url('featured-image'); ?>');">
         <div class="site-branding">
             <?php echo grahlie_use_logotype(); ?>
         </div>
@@ -35,5 +35,3 @@ if ( get_header_image() ) { ?>
     </div>
 
 <?php } ?>
-
-<!-- slider here later on -->

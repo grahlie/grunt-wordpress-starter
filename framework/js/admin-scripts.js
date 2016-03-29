@@ -43,16 +43,3 @@ jQuery(document).ready(function($){
 		return false;
 	});
 });
-
-
-function synced_item(id, item) {
-	// if ( $("#" + id).is(":checked") ) {
-	// 	$("." + item).show();
-	// } else {
-	// 	$("." + item).hide();
-	// }
-
-	// $("#" + id).click(function () {
-	// 	$("." + item).toggle();
-	// });
-}

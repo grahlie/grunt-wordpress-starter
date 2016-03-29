@@ -2,8 +2,6 @@
 /**
  * The template for displaying archive pages.
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
  * @package grahlie
  */
 
@@ -12,14 +10,10 @@ get_header(); ?>
 <section id="content" class="post-content">
 	<main id="main" class="site-main" role="main">
 
-		<?php
-		if ( have_posts() ) { ?>
+		<?php if ( have_posts() ) { ?>
 
 			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
+				<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
 			</header>
 
 			<?php
@@ -41,6 +35,5 @@ get_header(); ?>
 
 	</main>
 </section>
-<?php
-get_sidebar();
-get_footer();
+
+<?php get_sidebar(); get_footer();
