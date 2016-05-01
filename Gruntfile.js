@@ -5,8 +5,6 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-
-
     // CSS
     // Compile style.scss and compress it
     sass: {
@@ -67,7 +65,7 @@ module.exports = function(grunt) {
     // Watch for changes in js and scss files
     watch: {
       css: {
-        files: ['sass/*.scss', 'sass/inc/*.scss'],
+        files: ['sass/*.scss', 'sass/**/*.scss'],
         tasks: ['sass:dev', 'autoprefixer']
       },
       js: {

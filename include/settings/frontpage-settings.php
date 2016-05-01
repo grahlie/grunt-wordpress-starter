@@ -60,9 +60,12 @@ function grahlie_use_pages($class = null){
             $page  = get_post($grahlie_values['use_pages_select'][$i]);
             $thumb = get_the_post_thumbnail($page->ID);
             $size  = 'size' . 12/$grahlie_values['use_pages_count'];
+            $id    = get_post_class()[0];
+            $type  = get_post_class()[1];
+            $class .= ' ' . $id . ' ' . $type;
 
             $output .= '
-                <div class="grahlieBox' . $class . ' ' . $size . '">
+                <div id="' . $id . '" class="grahlieBox' . $class . ' ' . $size . '">
                 <article>' . $thumb . '
                     <h2>' . $page->post_title . '</h2>
                     <p>' . $page->post_excerpt . '</p>

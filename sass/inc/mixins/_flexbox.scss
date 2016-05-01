@@ -1,0 +1,95 @@
+.row {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.column {
+    box-sizing: border-box;
+    padding: 1.5rem;
+
+    &:first-of-type {
+        padding: 1.5rem 1.5rem 1.5rem 0;
+    }
+
+    &:last-of-type {
+        padding: 1.5rem 0 1.5rem 1.5rem;
+    }
+}
+
+/* Size classs */
+.size1 {
+    width: $site-width/12*1;
+}
+.size2 {
+    width: $site-width/12*2;
+}
+.size3 {
+    width: $site-width/12*3;
+}
+.size4 {
+    width: $site-width/12*4;
+}
+.size5 {
+    width: $site-width/12*5;
+}
+.size6 {
+    width: $site-width/12*6;
+}
+.size7 {
+    width: $site-width/12*7;
+}
+.size8 {
+    width: $site-width/12*8;
+}
+.size9 {
+    width: $site-width/12*9;
+}
+.size10 {
+    width: $site-width/12*10;
+}
+.size11 {
+    width: $site-width/12*11;
+}
+.size12 {
+    width: $site-width;
+}
+
+/* Order classes */
+.order1 {
+    order: 1;
+}
+.order2 {
+    order: 2;
+}
+.order3 {
+    order: 3;
+}
+.order4 {
+    order: 4;
+}
+.order5 {
+    order: 5;
+}
+.order6 {
+    order: 6;
+}
+.order7 {
+    order: 7;
+}
+.order8 {
+    order: 8;
+}
+.order9 {
+    order: 9;
+}
+.order10 {
+    order: 10;
+}
+.order11 {
+    order: 11;
+}
+.order12 {
+    order: 12;
+}

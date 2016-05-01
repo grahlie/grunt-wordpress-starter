@@ -8,7 +8,6 @@
 function grahlie_box_shortcode( $atts, $content = null ){
 
     extract( shortcode_atts ( array(
-        'class'      => '',
         'klass'      => '',
         'storlek'    => '',
         'size'       => '',
@@ -45,7 +44,7 @@ function grahlie_box_shortcode( $atts, $content = null ){
     }
 
 
-    if( $pages == '') {
+    if( $sidor == '') {
         $output = '
             <div class="grahlieBox' . $class . '' . $size . '"' . $background . '>
                 <article>' . $content_output . '</article>
@@ -56,3 +55,5 @@ function grahlie_box_shortcode( $atts, $content = null ){
     return $output;
 }
 add_shortcode( 'grahlieBox', 'grahlie_box_shortcode' );
+add_shortcode( 'grahlieBox2', 'grahlie_box_shortcode' );
+add_shortcode( 'grahlieBox3', 'grahlie_box_shortcode' );

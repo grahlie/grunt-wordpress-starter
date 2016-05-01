@@ -7,6 +7,140 @@ Version: 1.0.0
 Text Domain: grahlie
 Tags:
 */
+.row {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
+
+.column {
+  box-sizing: border-box;
+  padding: 1.5rem; }
+  .column:first-of-type {
+    padding: 1.5rem 1.5rem 1.5rem 0; }
+  .column:last-of-type {
+    padding: 1.5rem 0 1.5rem 1.5rem; }
+
+/* Size classs */
+.size1 {
+  width: 100px; }
+
+.size2 {
+  width: 200px; }
+
+.size3 {
+  width: 300px; }
+
+.size4 {
+  width: 400px; }
+
+.size5 {
+  width: 500px; }
+
+.size6 {
+  width: 600px; }
+
+.size7 {
+  width: 700px; }
+
+.size8 {
+  width: 800px; }
+
+.size9 {
+  width: 900px; }
+
+.size10 {
+  width: 1000px; }
+
+.size11 {
+  width: 1100px; }
+
+.size12 {
+  width: 1200px; }
+
+/* Order classes */
+.order1 {
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1; }
+
+.order2 {
+  -webkit-box-ordinal-group: 3;
+  -webkit-order: 2;
+      -ms-flex-order: 2;
+          order: 2; }
+
+.order3 {
+  -webkit-box-ordinal-group: 4;
+  -webkit-order: 3;
+      -ms-flex-order: 3;
+          order: 3; }
+
+.order4 {
+  -webkit-box-ordinal-group: 5;
+  -webkit-order: 4;
+      -ms-flex-order: 4;
+          order: 4; }
+
+.order5 {
+  -webkit-box-ordinal-group: 6;
+  -webkit-order: 5;
+      -ms-flex-order: 5;
+          order: 5; }
+
+.order6 {
+  -webkit-box-ordinal-group: 7;
+  -webkit-order: 6;
+      -ms-flex-order: 6;
+          order: 6; }
+
+.order7 {
+  -webkit-box-ordinal-group: 8;
+  -webkit-order: 7;
+      -ms-flex-order: 7;
+          order: 7; }
+
+.order8 {
+  -webkit-box-ordinal-group: 9;
+  -webkit-order: 8;
+      -ms-flex-order: 8;
+          order: 8; }
+
+.order9 {
+  -webkit-box-ordinal-group: 10;
+  -webkit-order: 9;
+      -ms-flex-order: 9;
+          order: 9; }
+
+.order10 {
+  -webkit-box-ordinal-group: 11;
+  -webkit-order: 10;
+      -ms-flex-order: 10;
+          order: 10; }
+
+.order11 {
+  -webkit-box-ordinal-group: 12;
+  -webkit-order: 11;
+      -ms-flex-order: 11;
+          order: 11; }
+
+.order12 {
+  -webkit-box-ordinal-group: 13;
+  -webkit-order: 12;
+      -ms-flex-order: 12;
+          order: 12; }
+
 .clearfix:before, .clearfix:after {
   content: "";
   display: table; }
