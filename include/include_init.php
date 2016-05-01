@@ -87,5 +87,12 @@ function remove_staticfiles_version( $src ) {
 add_filter( 'style_loader_src', 'remove_staticfiles_version', 1000 );
 add_filter( 'script_loader_src', 'remove_staticfiles_version', 1000 );
 
+/**
+ * Remove wpautop on shortcodes
+ */
+remove_filter( 'the_content', 'wpautop' );
+add_filter( 'the_content', 'wpautop' , 99);
+add_filter( 'the_content', 'shortcode_unautop',100 );
+
 
 ?>

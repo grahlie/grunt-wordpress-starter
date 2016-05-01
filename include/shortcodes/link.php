@@ -13,7 +13,6 @@ function grahlie_link_shortcode( $atts, $content = null ){
         'storlek'    => '',
         'size'       => '',
         'id'         => '',
-        'href'       => '',
         'adress'     => ''
     ), $atts ));
 
