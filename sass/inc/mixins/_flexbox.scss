@@ -1,59 +1,130 @@
 .row {
     align-items: center;
     display: flex;
-    flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
     justify-content: space-around;
+    margin: 0;
+    padding: 0;
 }
 
 .column {
     box-sizing: border-box;
     padding: 1.5rem;
 
-    &:first-of-type {
-        padding: 1.5rem 1.5rem 1.5rem 0;
+    @include breakpoint(phone) {
+        padding: 1rem 0;
     }
 
-    &:last-of-type {
+    &:first-of-type {
+        padding: 1.5rem 1.5rem 1.5rem 0;
+
+        @include breakpoint(phone) {
+            padding: 1rem 0;
+        }
+    }
+
+    &:nth-child(3n) {
         padding: 1.5rem 0 1.5rem 1.5rem;
+
+        @include breakpoint(phone) {
+            padding: 1rem 0;
+        }
     }
 }
 
 /* Size classs */
+.size1, .size2, .size3, .size4, .size5, .size6, .size7, .size8, .size9, .size10, .size11, .size12 {
+    margin: 0 3% 0 0;
+
+    &:last-of-type {
+        margin: 0;
+    }
+}
+
 .size1 {
-    width: $site-width/12*1;
+    width: 5.5%;
+
+    @include breakpoint(phone) {
+        width: 100%;
+    }
 }
 .size2 {
-    width: $site-width/12*2;
+    width: 14%;;
+
+    @include breakpoint(phone) {
+        width: 100%;
+    }
 }
 .size3 {
-    width: $site-width/12*3;
+    width: 22.5%;;
+
+    @include breakpoint(phone) {
+        width: 100%;
+    }
 }
 .size4 {
-    width: $site-width/12*4;
+    width: 31%;
+
+    @include breakpoint(phone) {
+        width: 100%;
+    }
 }
 .size5 {
-    width: $site-width/12*5;
+    width: 39.5%;
+
+    @include breakpoint(phone) {
+        width: 100%;
+    }
 }
 .size6 {
-    width: $site-width/12*6;
+    width: 48%;
+
+    @include breakpoint(phone) {
+        width: 100%;
+    }
 }
 .size7 {
-    width: $site-width/12*7;
+    width: 56.5%;
+
+    @include breakpoint(phone) {
+        width: 100%;
+    }
 }
 .size8 {
-    width: $site-width/12*8;
+    width: 65%;
+
+    @include breakpoint(phone) {
+        width: 100%;
+    }
 }
 .size9 {
-    width: $site-width/12*9;
+    width: 73.5%;
+
+    @include breakpoint(phone) {
+        width: 100%;
+    }
 }
 .size10 {
-    width: $site-width/12*10;
+    width: 82%;
+
+    @include breakpoint(phone) {
+        width: 100%;
+    }
 }
 .size11 {
-    width: $site-width/12*11;
+    width: 90.5%;
+
+    @include breakpoint(phone) {
+        width: 100%;
+    }
 }
 .size12 {
-    width: $site-width;
+    width: 99%;
+    margin: 0;
+
+    @include breakpoint(phone) {
+        width: 100%;
+    }
 }
 
 /* Order classes */
