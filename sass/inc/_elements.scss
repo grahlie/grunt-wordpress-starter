@@ -1,17 +1,13 @@
 blockquote, q {
-  quotes: "" "";
-
-  &:before,
-  &:after {
-    content: "";
-  }
+  font-style: italic;
+  font-size: 90%;
 }
 
 hr {
   background-color: $hr-color;
   border: 0;
   height: 1px;
-  margin-bottom: 1.5rem;
+  margin: $font-margin 0;
 }
 
 img {
@@ -22,7 +18,7 @@ img {
 // Lists
 ul, ol {
   padding: 0;
-  margin: 0 0 1.5rem 3rem;
+  margin: 0 0 $font-margin 2rem;
 }
 
 ul {
@@ -44,12 +40,12 @@ dt {
 }
 
 dd {
-  margin: 0 1.5rem 1.5rem;
+  margin: 0 1.5rem $font-margin;
 }
 
 // Tables
 table {
-  margin: 0 0 1.5rem;
+  margin: 0 0 $font-margin;
   width: 100%;
 }
 
@@ -60,13 +56,13 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  border: 1px solid;
-  border-color: $button-border-color;
+  border: 0;
   border-radius: $radius;
   background: $button-bg-color;
   color: $button-text-color;
   line-height: 1.9rem;
-  padding: .6rem 1rem .4rem;
+  padding: .7rem 1rem .6rem;
+  text-decoration: none;
 
   &:hover {
     background: $button-bg-color-hover;
@@ -76,10 +72,12 @@ input[type="submit"] {
   &:active,
   &:focus {
     background: $button-bg-color-focus;
+    outline: none;
   }
 }
 
-.btn.btn-primary {
+.btn.btn-primary,
+input[type="submit"] {
   background: $primary-color;
   color: $primary-text-color;
 
@@ -94,6 +92,17 @@ input[type="submit"] {
 
   &:hover {
     background: $secondary-dark-color;
+  }
+}
+
+.btn.btn-inverse {
+  background: transparent;
+  border: 2px solid $primary-color;
+  color: $primary-color;
+
+  &:hover {
+    background: $primary-color;
+    color: $bg-color;
   }
 }
 
@@ -141,38 +150,27 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-  color: $input-text-color;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: $radius;
   border: 0.1rem solid $input-border-color;
-  @include border-radius($radius);
+  color: $input-text-color;
+  font-size: 16px;
+  padding: 0.3rem;
+  box-shadow: none;
 
   &:focus {
-    color: $input-text-color-focus;
+    outline: none;
   }
 }
 
 select {
   border: 0.1rem solid $input-border-color;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-input[type="number"],
-input[type="tel"],
-input[type="range"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="color"] {
-  padding: 0.3rem;
+  max-width: 100%;
 }
 
 textarea {
-  padding-left: 0.3rem;
   width: 100%;
 }

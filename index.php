@@ -13,8 +13,8 @@
  */
 
 get_header(); ?>
-<section id="content" class="post-content">
-	<main id="main" class="site-main" role="main">
+<section id="content">
+	<main id="main" role="main">
 
 	<?php if (have_posts()) { ?>
 
@@ -26,7 +26,7 @@ get_header(); ?>
 
 		<?php } ?>
 
-		<?php the_posts_navigation(); ?>
+		<?php grahlie_post_nav(); ?>
 
 	<?php } else { ?>
 

@@ -7,8 +7,8 @@
 
 get_header(); ?>
 
-<section id="content" class="page-content">
-	<main id="main" class="site-main" role="main">
+<section id="content">
+	<main id="main" role="main">
 
 		<?php while (have_posts()) {
 			

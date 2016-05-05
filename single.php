@@ -7,8 +7,8 @@
 
 get_header(); ?>
 
-<div id="content" class="post-content">
-	<main id="main" class="site-main" role="main">
+<section id="content">
+	<main id="main" role="main">
 
 	<?php while ( have_posts() ) {
 		the_post();
@@ -24,7 +24,7 @@ get_header(); ?>
 	} ?>
 
 	</main>
-</div>
+</section>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

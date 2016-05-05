@@ -11,25 +11,22 @@
 /**
  * Filters wp_title to print a neat <title> tag based on what is being viewed.
  */
-function grahlie_pretty_title( $title, $sep ) {
-    if ( is_feed() ) {
-        return $title;
-    }
-
-    global $page, $paged;
+function grahlie_pretty_title( $sep ) {
+    global $page, $post;
 
     // Add the blog name
-    $title .= get_bloginfo( 'name', 'display' );
+    $blogname = get_bloginfo( 'name' );
 
     // Add the blog description for the home/front page.
     $site_description = get_bloginfo( 'description', 'display' );
     if ( $site_description && ( is_home() || is_front_page() ) ) {
-        $title .= " $sep $site_description";
-    }
-
-    // Add a page number if necessary:
-    if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-        $title .= " $sep " . sprintf( __( 'Page %s', 'grahlie' ), max( $paged, $page ) );
+        $title = "$blogname $sep $site_description";
+    } elseif( is_single() ) {
+        $title = "$post->post_title $sep $blogname";
+    } elseif( is_page() && !is_front_page() ) {
+        $title = "$post->post_title $sep $blogname";
+    } else {
+        $title = "$blogname";
     }
 
     return $title;
@@ -44,11 +41,11 @@ function grahlie_post_nav() {
     $previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
     $next     = get_adjacent_post( false, '', false );
 
-    if ( ! $next && ! $previous ) {
+    if ( !$next && !$previous ) {
         return;
     }
     ?>
-    <nav class="navigation post-navigation" role="navigation">
+    <nav class="post-navigation" role="navigation">
         <div class="nav-links">
             <?php
                 // Lägg till font awesome ikoner för pilarna istället
@@ -116,12 +113,6 @@ function grahlie_entry_footer() {
 		if ( $categories_list && grahlie_categorized_blog() ) {
 			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s ', 'grahlie' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
-
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'grahlie' ) );
-		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'grahlie' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
@@ -130,14 +121,9 @@ function grahlie_entry_footer() {
 		echo '</span>';
 	}
 
-	edit_post_link(
-		sprintf(
-			esc_html__( 'Edit %s', 'grahlie' ),
-			the_title( '', '', false )
-		),
-		'<span class="edit-link">',
-		'</span>'
-	);
+    $edit_link = get_edit_post_link();
+
+    echo '<a href="' . $edit_link . '" class="btn btn-secondary edit-link">Edit ' . get_the_title() . '</a>';
 }
 endif;
 

@@ -14,7 +14,7 @@
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'grahlie' ); ?></h1>
 	</header><!-- .page-header -->
 
-	<div class="page-content">
+	<div>
 		<?php
 		if(is_search()) : ?>
 

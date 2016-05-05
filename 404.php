@@ -9,8 +9,8 @@
 
 get_header(); ?>
 
-<section id="content" class="page-content">
-	<main id="main" class="site-main" role="main">
+<section id="content">
+	<main id="main" role="main">
 
 		<div class="error-404 not-found">
 			<header class="page-header">
@@ -24,7 +24,7 @@ get_header(); ?>
 				<script>
 					$(document).ready(function() {
 					   var pageBack =  document.referrer;
-					   connsole.log(pageBack);
+					   console.log(pageBack);
 					   $('#pageBack').attr('href', pageBack);
 					});
 				</script>

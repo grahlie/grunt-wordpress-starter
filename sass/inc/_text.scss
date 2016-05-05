@@ -16,6 +16,16 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
   font-family: $header-font;
   clear: both;
+  margin-top: 0;
+}
+
+.hentry {
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child {
+    margin: 0;
+  }
 }
 
 h1 {
@@ -24,6 +34,14 @@ h1 {
 
 h2 {
   font-size: $h2-font-size;
+
+  &.entry-title {
+    font-size: $h2-font-size*1.5;
+
+    a {
+      text-decoration: none;
+    }
+  }
 }
 
 h3 {
@@ -47,7 +65,7 @@ h6 {
 }
 
 p {
-  margin-bottom: 1.5rem;
+  margin: $font-margin 0;
 }
 
 // Code, acronym, quotes
@@ -56,11 +74,11 @@ dfn, cite, em, i {
 }
 
 blockquote {
-  margin: 0 1.5rem;
+  margin: 0 $font-margin;
 }
 
 address {
-  margin: 0 0 1.5rem;
+  margin: $font-margin 0;
 }
 
 pre {
@@ -68,7 +86,7 @@ pre {
   font-family: $font-pre;
   font-size: 1.2rem;
   line-height: $font-line-height-pre;
-  margin-bottom: 1.6rem;
+  margin: $font-margin 0;
   max-width: 100%;
   overflow: auto;
   padding: 1.6rem;
@@ -76,7 +94,7 @@ pre {
 
 code, kbd, tt, var {
   font-family: $font-code;
-  font-size: 0.9rem;
+  font-size: $font-size;
 }
 
 abbr, acronym {

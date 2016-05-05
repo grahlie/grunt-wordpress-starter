@@ -1,7 +1,6 @@
 <?php
 /**
  * Template part for displaying posts.
- * MÅSTE ÄNDRA PÅ DENNA SIDAN SEDAN
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package grahlie
@@ -10,7 +9,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+	<header>
 		<?php
 			if ( is_single() ) {
 				the_title( '<h1 class="entry-title">', '</h1>' );
@@ -28,10 +27,11 @@
 
 	<div class="entry-content">
 		<?php
-			the_content( sprintf(
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'grahlie' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '', '', false )
-			) );
+			if( is_single() ) {
+				the_content();
+			} else {
+				the_excerpt();
+			}
 		?>
 	</div>
 

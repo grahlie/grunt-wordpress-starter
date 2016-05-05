@@ -1,6 +1,7 @@
 .header-content {
   @include clearfix();
   height: 8rem;
+  margin-bottom: 2rem;
   padding-top: 2rem;
 }
 
@@ -31,9 +32,9 @@
   }
 
   .navigation {
+    float: right;
     margin: 0;
     padding-left: 0;
-    float: right;
 
     .sub-menu {
       background: $primary-color;
@@ -72,8 +73,8 @@
 
       a {
         display: block;
-        text-decoration: none;
         padding: 0.5rem;
+        text-decoration: none;
       }
 
       &:hover > a,
@@ -97,9 +98,9 @@
 /* Mobile navigation */
 @include breakpoint(phone-and-tablet) {
   #nav-trigger:checked ~ .navigation {
-    visibility: visible;
     background: $primary-color;
     transform: translate(0, 0);
+    visibility: visible;
 
     li, li a {
       visibility: visible;
@@ -111,9 +112,9 @@
     right: 24rem;
 
     &::before, &::after {
-      top: 45%;
-      transform: rotate(45deg);
       box-shadow: none;
+      transform: rotate(45deg);
+      top: 45%;
     }
 
     &::after {
@@ -122,38 +123,38 @@
   }
 
   #navopen {
+    @include transition(0.5s);
     background: $primary-color;
-    width: 8rem;
+    cursor: pointer;
     height: 8rem;
     margin-top: -2rem;
     position: absolute;
     right: 0;
-    cursor: pointer;
-    @include transition(0.5s);
+    width: 8rem;
 
     &::before, &::after {
-      width: 3rem;
-      height: 0.2rem;
+      background: $primary-text-color;
+      box-shadow: 0 0.8rem 0 0 $primary-text-color,0 1.6rem 0 0 $primary-text-color;
       content: '';
+      height: 0.2rem;
       position: absolute;
       left: 30%;
       top: 2.7rem;
-      background: $primary-text-color;
-      box-shadow: 0 0.8rem 0 0 $primary-text-color,0 1.6rem 0 0 $primary-text-color;
+      width: 3rem;
     }
   }
 
   .navigation {
-    visibility: hidden;
-    width: 24rem;
     height: 100%;
+    @include transition(0.5s);
     padding: 2rem 2rem;
-    margin-top: -2rem;
-    list-style: none;
     position: fixed;
     right: 0;
+    list-style: none;
+    margin-top: -2rem;
     transform: translate(100%, 0);
-    @include transition(0.5s);
+    visibility: hidden;
+    width: 24rem;
 
     ul {
       list-style: none;
@@ -162,9 +163,9 @@
     }
 
     a, a:visited {
-      text-decoration: none;
-      color: $primary-text-color;
       @include transition(0.5s);
+      color: $primary-text-color;
+      text-decoration: none;
     }
   }
 }

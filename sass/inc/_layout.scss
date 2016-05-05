@@ -39,13 +39,13 @@ body {
   padding: 0 0 0 1%;
 }
 
-.blog .post-content, .search .post-content, .post-content {
+.blog section, .search section, section {
   @include siteMain-float();
   margin: 0 (-$site-sidebar) 0 0;
   width: $site-main;
 
   @include breakpoint(tablet-up) {
-    .site-main {
+    [role="main"] {
       margin: 0 $site-sidebar 0 0;
       padding: 0 2rem 0 0;
     }
@@ -78,22 +78,21 @@ body {
   display: none;
 }
 
-.widget {
-  margin: 0 0 1.5rem;
-
-  select {
-    max-width: 100%;
-  }
-}
-
-
 // Post & Pages layout
 .sticky {
   display: block;
 }
 
-.hentry {
-  margin: 0 0 1.5rem;
+article {
+  border-bottom: 3px solid $hr-color;
+  margin: 0 0 $site-margin;
+  padding: 0 0 $site-margin;
+
+  header {
+    border-bottom: 1px solid $hr-color;
+    margin: 0 0 $font-margin;
+    padding: 0 0 $font-margin;
+  }
 }
 
 .byline,
@@ -106,14 +105,28 @@ body {
   display: inline;
 }
 
-.entry-content,
-.entry-summary {
-  margin: 1.5rem 0 0;
-}
-
 .page-links {
   clear: both;
-  margin: 0 0 1.5rem;
+  margin: 0 0 $font-margin;
+}
+
+.posts-navigation {
+  float: none;
+  text-align: center;
+
+  .nav-links {
+    margin: 0 auto;
+    width: 200px;
+
+    > div {
+      display: inline-block;
+      float: left;
+    }
+  }
+}
+
+.edit-link {
+  float: right;
 }
 
 // Text layout
@@ -130,8 +143,8 @@ body {
 }
 
 .aligncenter {
-  clear: both;
   @include center-block;
+  clear: both;
 }
 
 // Comments layout
@@ -141,4 +154,3 @@ body {
 .bypostauthor {
   display: block;
 }
-

@@ -12,9 +12,7 @@
 <?php echo grahlie_use_favicon(); ?>
 <title>
 <?php
-	global $page, $paged;
-	wp_title( '|', true, 'right');
-	bloginfo( 'name' );
+    echo grahlie_pretty_title( '-' );
 ?>
 </title>
 
