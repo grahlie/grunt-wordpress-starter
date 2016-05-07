@@ -27,7 +27,7 @@ get_header(); ?>
 
 		}
 
-		the_posts_navigation();
+		grahlie_post_nav();
 
 	} else {
 

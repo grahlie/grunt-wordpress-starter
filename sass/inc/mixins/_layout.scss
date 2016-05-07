@@ -25,7 +25,8 @@
   }
 }
 
-.clearfix {
+.clearfix,
+.clear {
     @include clearfix();
 }
 

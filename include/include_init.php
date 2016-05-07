@@ -18,6 +18,7 @@ require $incdir . 'shortcodes/shortcodes_init.php';
 require $incdir . 'theme/template-tags.php';
 require $incdir . 'theme/customizer.php';
 // require $incdir . 'theme/jetpack.php';
+require $incdir . 'theme/excerpt.php';
 
 /**
  *
@@ -88,7 +89,7 @@ add_filter( 'style_loader_src', 'remove_staticfiles_version', 1000 );
 add_filter( 'script_loader_src', 'remove_staticfiles_version', 1000 );
 
 /**
- * Remove wpautop on shortcodes
+ * Remove wpautop (p-tag) on shortcodes
  */
 remove_filter( 'the_content', 'wpautop' );
 add_filter( 'the_content', 'wpautop' , 99);

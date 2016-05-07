@@ -64,12 +64,18 @@ function grahlie_use_pages($class = null){
             $type  = get_post_class()[1];
             $class .= ' ' . $id . ' ' . $type . ' column';
 
+            if( empty( $page->post_excerpt ) ) {
+                $content = grahlie_content_excerpt_filter( $page->post_content );
+            } else {
+                $content = $page->post_excerpt;
+            }
+
             $output .= '
                 <div id="' . $id . '" class="grahlieBox' . $class . ' ' . $size . '">
                 ' . $thumb . '
                     <h2>' . $page->post_title . '</h2>
-                    <p>' . $page->post_excerpt . '</p>
-                    <a href="' . $page->post_name .'">Läs mer</a>
+                    <p>' . $content . '</p>
+                    <a href="' . $page->post_name .'" class="btn btn-primary">Läs mer</a>
                 </div>';
         }
 

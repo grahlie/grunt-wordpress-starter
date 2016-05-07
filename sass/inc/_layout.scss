@@ -12,20 +12,14 @@ body {
   background: $bg-color;
 }
 
-.clear:before,
-.clear:after,
-.entry-content:before,
-.entry-content:after,
-.comment-content:before,
-.comment-content:after,
-.site-header:before,
-.site-header:after,
-.site-content:before,
-.site-content:after,
-.site-footer:before,
-.site-footer:after,
+.entry-content,
+.comment-content,
+.site-header,
+.site-content,
+.site-footer,
+.entry-footer,
 .hentry {
-  @include clearfix;
+  @include clearfix();
 }
 
 // Main layout
@@ -39,7 +33,7 @@ body {
   padding: 0 0 0 1%;
 }
 
-.blog section, .search section, section {
+.blog section, .search section, .single section {
   @include siteMain-float();
   margin: 0 (-$site-sidebar) 0 0;
   width: $site-main;
@@ -76,75 +70,6 @@ body {
 .blog .format-aside .entry-title,
 .archive .format-aside .entry-title {
   display: none;
-}
-
-// Post & Pages layout
-.sticky {
-  display: block;
-}
-
-article {
-  border-bottom: 3px solid $hr-color;
-  margin: 0 0 $site-margin;
-  padding: 0 0 $site-margin;
-
-  header {
-    border-bottom: 1px solid $hr-color;
-    margin: 0 0 $font-margin;
-    padding: 0 0 $font-margin;
-  }
-}
-
-.byline,
-.updated:not(.published){
-  display: none;
-}
-
-.single .byline,
-.group-blog .byline {
-  display: inline;
-}
-
-.page-links {
-  clear: both;
-  margin: 0 0 $font-margin;
-}
-
-.posts-navigation {
-  float: none;
-  text-align: center;
-
-  .nav-links {
-    margin: 0 auto;
-    width: 200px;
-
-    > div {
-      display: inline-block;
-      float: left;
-    }
-  }
-}
-
-.edit-link {
-  float: right;
-}
-
-// Text layout
-.alignleft {
-  display: inline;
-  float: left;
-  margin-right: 1.5rem;
-}
-
-.alignright {
-  display: inline;
-  float: right;
-  margin-left: 1.5rem;
-}
-
-.aligncenter {
-  @include center-block;
-  clear: both;
 }
 
 // Comments layout

@@ -15,7 +15,7 @@ get_header(); ?>
 
 		get_template_part( 'template/content', get_post_format() );
 
-		the_post_navigation();
+		grahlie_post_nav();
 
 		if ( comments_open() || get_comments_number() ) {
 			comments_template();

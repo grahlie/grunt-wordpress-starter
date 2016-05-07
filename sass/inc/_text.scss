@@ -30,6 +30,14 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: $h1-font-size;
+
+  &.entry-title {
+    font-size: $h2-font-size*1.5;
+
+    a {
+      text-decoration: none;
+    }
+  }
 }
 
 h2 {

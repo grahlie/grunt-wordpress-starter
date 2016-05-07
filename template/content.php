@@ -1,7 +1,6 @@
 <?php
 /**
  * Template part for displaying posts.
- * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package grahlie
  */
@@ -36,6 +35,6 @@
 	</div>
 
 	<footer class="entry-footer">
-		<?php grahlie_entry_footer(); ?>
+		<?php echo grahlie_entry_footer(); ?>
 	</footer>
 </article>

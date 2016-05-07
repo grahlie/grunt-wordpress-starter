@@ -4,11 +4,6 @@
 // Make more grahlie like
 
 /**
- * Contains functions used on frontend of the theme
- * Author: grahlie
- */
-
-/**
  * Filters wp_title to print a neat <title> tag based on what is being viewed.
  */
 function grahlie_pretty_title( $sep ) {
@@ -36,7 +31,6 @@ add_filter( 'wp_title', 'grahlie_pretty_title', 10, 2 );
 /**
  * Display navigation to next/previous post when applicable.
  */
-if ( ! function_exists( 'grahlie_post_nav' ) ) :
 function grahlie_post_nav() {
     $previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
     $next     = get_adjacent_post( false, '', false );
@@ -46,17 +40,24 @@ function grahlie_post_nav() {
     }
     ?>
     <nav class="post-navigation" role="navigation">
-        <div class="nav-links">
             <?php
                 // Lägg till font awesome ikoner för pilarna istället
-                previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'grahlie' ) );
-                next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'grahlie' ) );
+                if( is_single() ) {
+                    previous_post_link( '<div class="nav-previous">%link</div>', _x( '< %title', 'Previous post link', 'grahlie' ) );
+                    next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title >', 'Next post link',     'grahlie' ) );
+                } else {
+                    $paginate_args = array(
+                        'prev_text' => __('< Previous', 'grahlie'),
+                        'next_text' => __('Next >', 'grahlie'),
+                        'mid_size'  => 2,
+                        'end_size'  => 2
+                    );
+                    echo paginate_links( $paginate_args ); 
+                }
             ?>
-        </div>
     </nav>
     <?php
 }
-endif;
 
 
 
@@ -96,7 +97,14 @@ function grahlie_posted_on() {
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+    if ( 'post' === get_post_type() ) {
+        $categories_list = get_the_category_list( esc_html__( ', ', 'grahlie' ) );
+        if ( $categories_list && grahlie_categorized_blog() ) {
+            $category = sprintf( esc_html__( 'Posted in %1$s ', 'grahlie' ), $categories_list );
+        }
+    }
+
+	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span><span class="cat-links"> ' . $category . '</span>';
 
 }
 endif;
@@ -106,24 +114,20 @@ if ( ! function_exists( 'grahlie_entry_footer' ) ) :
  * Prints HTML with meta information for the categories, tags and comments.
  */
 function grahlie_entry_footer() {
-	// Hide category and tag text for pages.
-	if ( 'post' === get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'grahlie' ) );
-		if ( $categories_list && grahlie_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s ', 'grahlie' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-		}
-	}
+    $output = '';
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
+		$output .= '<span class="comments-link">';
 		comments_popup_link( esc_html__( 'Leave a comment', 'grahlie' ), esc_html__( '1 Comment', 'grahlie' ), esc_html__( '% Comments', 'grahlie' ) );
-		echo '</span>';
+		$output .= '</span>';
 	}
 
-    $edit_link = get_edit_post_link();
+    if (current_user_can( 'manage_options' ) ) {
+        $edit_link = get_edit_post_link();
+        $output .= '<a href="' . $edit_link . '" class="btn btn-secondary edit-link">Edit ' . get_the_title() . '</a>';
+    }
 
-    echo '<a href="' . $edit_link . '" class="btn btn-secondary edit-link">Edit ' . get_the_title() . '</a>';
+    return $output;
 }
 endif;
 
