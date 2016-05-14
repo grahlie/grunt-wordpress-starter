@@ -2,8 +2,6 @@
 /**
  * Template part for displaying results in search pages.
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
  * @package grahlie
  */
 
@@ -20,7 +18,7 @@
 		<?php } ?>
 	</header>
 
-	<div class="entry-summary">
+	<div class="entry-content">
 		<?php the_excerpt(); ?>
 	</div>
 

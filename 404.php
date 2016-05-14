@@ -19,15 +19,6 @@ get_header(); ?>
 
 			<div class="error-content">
 				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'grahlie' ); ?></p>
-
-				<a href="#" id="pageBack"><?php _e('Go back', 'grahlie'); ?></a>
-				<script>
-					$(document).ready(function() {
-					   var pageBack =  document.referrer;
-					   console.log(pageBack);
-					   $('#pageBack').attr('href', pageBack);
-					});
-				</script>
 			</div>
 		</div>
 
