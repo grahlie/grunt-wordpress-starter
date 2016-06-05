@@ -41,9 +41,13 @@
 @mixin translate ($x, $y) {
     @include transform(translate($x, $y));
 }
-@mixin skew ($x, $y) {
+@mixin skew ($x, $y, $height) {
     @include transform(skew(#{$x}deg, #{$y}deg));
+    height: $height;
+    position: relative;
+    top: -11rem;
 }
+
 @mixin transform-origin ($origin) {
     moz-transform-origin: $origin;
     -o-transform-origin: $origin;

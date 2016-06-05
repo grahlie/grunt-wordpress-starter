@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     sass: {
       production: {
         options: {
-          style: 'compressed'
+          style: 'expanded'
         },
         files: {
           'style.css': 'sass/style.scss'
@@ -81,7 +81,7 @@ module.exports = function(grunt) {
         },
         options: {
           watchTask: true,
-          proxy: "dev." + name + ".se/"
+          proxy: "dev." + name + ".se"
         }
       }
     }
@@ -95,10 +95,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
 
-
-
   // GRUNT TRIGGERS
   grunt.registerTask('dev', ['jshint', 'uglify:dev', 'sass:dev', 'autoprefixer', 'browserSync', 'watch']);
-  grunt.registerTask('production', ['jshint', 'uglify:production', 'sass:production', 'autoprefixer', 'watch']);
+  grunt.registerTask('production', ['jshint', 'uglify:production', 'sass:production', 'autoprefixer']);
 
 }

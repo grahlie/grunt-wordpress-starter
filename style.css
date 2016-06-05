@@ -201,6 +201,20 @@ Tags:
       -ms-flex-order: 12;
           order: 12; }
 
+.Skeva {
+  -webkit-transform: skew(0deg, -10deg);
+  transform: skew(0deg, -10deg);
+  height: 400px;
+  position: relative;
+  top: -11rem; }
+  .Skeva > * {
+    -webkit-transform: skew(0deg, 10deg);
+    transform: skew(0deg, 10deg);
+    height: auto;
+    position: relative;
+    top: -11rem;
+    position: absolute; }
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -1003,5 +1017,3 @@ object {
     .grahlieLogo a img {
       margin: 0 0 -.8rem .5rem;
       width: 50px; }
-
-/* In this file we put specific styling for site */

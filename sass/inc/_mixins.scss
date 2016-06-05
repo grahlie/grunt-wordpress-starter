@@ -7,3 +7,11 @@
 @import 'mixins/flexbox';
 @import 'mixins/animations';
 
+.Skeva {
+    @include skew(0, -10, 400px);
+
+    > * {
+        @include skew(0, 10, auto);
+        position: absolute;
+    }
+}
