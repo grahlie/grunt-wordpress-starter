@@ -32,10 +32,6 @@ function grahlie_setup() {
 	/**
 	 * Initiate widgets
 	 */	
-	
-	/**
-	 * Initiate widgets
-	 */
 	function grahlie_create_sidebar() {
 		register_sidebar( array(
 			'name' 			=> __('Fotinnehåll', 'grahlie'),
