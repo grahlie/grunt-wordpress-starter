@@ -27,17 +27,15 @@ function grahlie_setup() {
 		));
 	}
 	add_filter('image_size_names_choose', 'grahlie_custom_image_size');
-<<<<<<< HEAD
+
 
 	/**
 	 * Initiate widgets
 	 */	
-=======
 	
 	/**
 	 * Initiate widgets
 	 */
->>>>>>> e3a98e4e072177902c463f5f7620d9a4342f6572
 	function grahlie_create_sidebar() {
 		register_sidebar( array(
 			'name' 			=> __('Fotinnehåll', 'grahlie'),
