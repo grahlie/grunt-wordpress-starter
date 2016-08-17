@@ -8,10 +8,13 @@
 </div>
 
 <footer id="pageFooter" class="site-footer" role="contentinfo">
-	<div class="footer-content">
-        <p class="grahlieLogo">
+    <div class="footer-content row">
+        <div class="size8">
+            <?php dynamic_sidebar('footer'); ?>
+        </div>
+        <p class="grahlieLogo size4">
             &copy; <?php bloginfo( 'name' ); ?> -
-            <?php printf( esc_html__( 'Developed by %1$s', 'grahlie' ), '<a href="http://grahlie.se" rel="designer"><img src="' . get_template_directory_uri() . '/images/grahlie.svg" alt="grahlie" /></a>'); ?>
+            <?php printf( esc_html__( 'Developed by %1$s', 'grahlie' ), '<a href="http://grahlie.se" rel="designer"></a>'); ?>
         </p>
     </div>
 </footer>

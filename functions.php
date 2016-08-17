@@ -18,6 +18,30 @@ function grahlie_setup() {
 	 * Add image size for theme
 	 */
 	add_image_size('featured-image', 1200, 500);
+	add_image_size('startsida-bild', 700, 450);
+
+	function grahlie_custom_image_size( $sizes ) {
+		return array_merge( $sizes, array(
+			'startsida-bild' => __( 'Bild på startsida', 'grahlie' ),
+			'featured-image' => __( 'Featured bild', 'grahlie')
+		));
+	}
+	add_filter('image_size_names_choose', 'grahlie_custom_image_size');
+	
+	/**
+	 * Initiate widgets
+	 */
+	function grahlie_create_sidebar() {
+		register_sidebar( array(
+			'name' 			=> __('Fotinnehåll', 'grahlie'),
+			'id'     		=> 'footer',
+			'before_widget' => '<div class="Footer-widget">',
+			'after_widget'  => '</div>',
+			'before_title'  => '',
+			'after_title'   => '',
+		));
+	}
+	add_filter('widgets_init', 'grahlie_create_sidebar');
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(

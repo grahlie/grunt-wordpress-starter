@@ -39,3 +39,4 @@ Thumbs.db
 # NODE / NPM package #
 ######################
 node_modules
+.sass-cache/
