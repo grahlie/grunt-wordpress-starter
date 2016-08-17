@@ -42,21 +42,11 @@ article {
   .nav-previous a,
   .nav-next a {
     @extend .btn;
-    @extend .btn-primary;
+    @extend .btn-inverse;
 
     &.current {
       @extend .btn-secondary;
     }
-  }
-
-  .prev,
-  .nav-previous {
-    float: left;
-  }
-
-  .next,
-  .nav-next {
-    float: right;
   }
 }
 

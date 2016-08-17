@@ -48,7 +48,7 @@ function grahlie_frontpage_settings(){
 /**
  * Output pages defined in framework
  */
-function grahlie_use_pages($class = null){
+function grahlie_use_pages($class = null, $title, $thumbnail){
 
     $grahlie_values = get_option( 'grahlie_framework_values' );
     $output = '';
@@ -58,11 +58,21 @@ function grahlie_use_pages($class = null){
         for($i=1; $i <= $grahlie_values['use_pages_count']; $i++) {
 
             $page  = get_post($grahlie_values['use_pages_select'][$i]);
-            $thumb = get_the_post_thumbnail($page->ID);
             $size  = 'size' . 12/$grahlie_values['use_pages_count'];
             $id    = get_post_class()[0];
             $type  = get_post_class()[1];
             $class .= ' ' . $id . ' ' . $type . ' column';
+
+            $output .= '<div id="' . $id . '" class="grahlieBox' . $class . ' ' . $size . '">';
+            
+            if($thumb != '') {
+                $thumb = get_the_post_thumbnail($page->ID);
+                $output .= $thumb;
+            }
+
+            if( $title != '') { 
+                $output .= '<h2>' . $page->post_title . '</h2>';
+            }
 
             if( empty( $page->post_excerpt ) ) {
                 $content = grahlie_content_excerpt_filter( $page->post_content );
@@ -70,13 +80,9 @@ function grahlie_use_pages($class = null){
                 $content = $page->post_excerpt;
             }
 
-            $output .= '
-                <div id="' . $id . '" class="grahlieBox' . $class . ' ' . $size . '">
-                ' . $thumb . '
-                    <h2>' . $page->post_title . '</h2>
-                    <p>' . $content . '</p>
-                    <a href="' . $page->post_name .'" class="btn btn-primary">Läs mer</a>
-                </div>';
+                
+            $output .= '<p>' . $content . '</p><a href="' . $page->post_name .'" class="btn btn-primary">Läs mer</a></div>';
+            
         }
 
     }

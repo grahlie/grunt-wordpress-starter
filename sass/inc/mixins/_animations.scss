@@ -45,7 +45,6 @@
     @include transform(skew(#{$x}deg, #{$y}deg));
     height: $height;
     position: relative;
-    top: -11rem;
 }
 
 @mixin transform-origin ($origin) {

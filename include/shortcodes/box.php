@@ -15,7 +15,11 @@ function grahlie_box_shortcode( $atts, $content = null ){
         'bakgrund'   => '',
         'background' => '',
         'sidor'      => '',
-        'pages'      => ''
+        'pages'      => '',
+        'titel'      => '',
+        'title'      => '',
+        'bild'       => '',
+        'image'      => ''
     ), $atts ));
 
     if( $klass != '' ) {
@@ -34,8 +38,7 @@ function grahlie_box_shortcode( $atts, $content = null ){
     }
 
     if( $sidor != '' ) {
-        $pages = $sidor;
-        $output = grahlie_use_pages($class);
+        $output = grahlie_use_pages($class, $title, $image);
     }
 
     if( $content != null ){

@@ -25,6 +25,7 @@
 *.log
 *.sql
 *.sqlite
+style.css.map
 
 # OS generated files #
 ######################
@@ -39,3 +40,4 @@ Thumbs.db
 # NODE / NPM package #
 ######################
 node_modules
+.sass-cache/

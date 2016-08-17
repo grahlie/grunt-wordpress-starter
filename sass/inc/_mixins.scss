@@ -8,10 +8,10 @@
 @import 'mixins/animations';
 
 .Skeva {
-    @include skew(0, -10, 400px);
+    @include skew(0, -10, auto);
+    @include clearfix();
 
     > * {
         @include skew(0, 10, auto);
-        position: absolute;
     }
 }

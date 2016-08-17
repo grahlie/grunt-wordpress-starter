@@ -46,7 +46,7 @@ function grahlie_button_shortcode( $atts, $content = null ){
 
     if( $pages == '') {
         $output = '
-            <a href="' . $href . '" ' . $target . ' class="grahlieButton' . $class . '' . $size . '"' . $background . '>' . $content_output . '</a>';
+            <a href="' . $href . '" ' . $target . ' class="btn ' . $class . '' . $size . '"' . $background . '>' . $content_output . '</a>';
     }
 
     return $output;

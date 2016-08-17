@@ -17,6 +17,7 @@
   display: inline-block;
   float: left;
   margin-right: 2rem;
+  width: 25rem;
 }
 
 #nav-trigger {
@@ -33,6 +34,7 @@
 
   .navigation {
     float: right;
+    line-height: 3;
     margin: 0;
     padding-left: 0;
 
@@ -40,7 +42,7 @@
       background: $primary-color;
       float: left;
       position: absolute;
-      top: 3rem;
+      top: 4.5rem;
       left: -999rem;
       z-index: 99999;
 
@@ -72,15 +74,13 @@
       position: relative;
 
       a {
+        border-radius: $radius;
+        color: $secondary-color;
         display: block;
         padding: 0.5rem;
         text-decoration: none;
-      }
-
-      &:hover > a,
-      &.focus > a {
-        background: $primary-color;
-        color: $bg-color;
+        text-transform: uppercase;
+        margin: 0 0.5rem;
       }
     }
   }
@@ -90,8 +90,15 @@
   body:not(.home) .current-menu-item > a,
   body:not(.home) .current_page_ancestor > a,
   body:not(.home) .current-menu-ancestor > a {
-    background: $primary-color;
-    color: $bg-color;
+    color: $primary-color;
+  }
+
+  body:not(.home) .sub-menu .current_page_item > a,
+  body:not(.home) .sub-menu .current_page_parent > a,
+  body:not(.home) .sub-menu .current-menu-item > a,
+  body:not(.home) .sub-menu .current_page_ancestor > a,
+  body:not(.home) .sub-menu .current-menu-ancestor > a {
+    color: $white;
   }
 }
 

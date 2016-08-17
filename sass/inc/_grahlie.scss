@@ -1,12 +1,12 @@
 .grahlieLogo {
+    font-size: 1.2rem;
     line-height: 80px;
 
     a {
+        background: url('../roosmekaniska/images/grahlie.svg') no-repeat;
         display: inline-block;
-
-        img {
-            margin: 0 0 -.8rem .5rem;
-            width: 50px;
-        }
+        width: 4rem;
+        height: 4rem;
+        margin: 0 0 -2.4rem .5rem;
     }
 }

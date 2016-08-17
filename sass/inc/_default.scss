@@ -1,0 +1,88 @@
+/*
+ * Bakgrundsfärger
+ */
+.Gron {
+    background: $primary-color;
+}
+.LjusGron {
+    backgorund: $primary-light-color;
+}
+.MorkGron {
+    background: $primary-dark-color;
+}
+.Bla {
+    background: $secondary-color;
+    color: $white;
+}
+.MorkBla {
+    background: $secondary-dark-color;
+    color: $white;
+}
+.LjusBla {
+    background: $secondary-light-color;
+    color: $white;
+}
+
+/*
+ * Textcolors
+ */
+.VitText {
+    color: $white;
+}
+.GronText {
+    color: $primary-color;
+}
+.BlaText {
+    color: $secondary-color;
+}
+
+/*
+ * Extra margin
+ */
+.StorMarginalBotten {
+    margin-bottom: 20rem;
+}
+.MedelMarginalBotten {
+    margin-bottom: 15rem;
+}
+.LitenMarginalBotten {
+    margin-bottom: 10rem;
+}
+.MiniMarginalBotten {
+    margin-bottom: 3.5rem;
+}
+.StorMarginalTopp {
+    margin-top: 20rem;
+}
+.MedelMarginalTopp {
+    margin-top: 15rem;
+}
+.LitenMarginalTopp {
+    margin-top: 10rem;
+}
+
+/*
+ * Extra padding
+ */
+.StorFyllningTopp {
+    padding-top: 20rem;
+}
+.MedelFyllningTopp {
+    padding-top: 15rem;
+}
+.LitenFyllningTopp {
+    padding-top: 10rem;
+}
+.StorFyllningBotten {
+    padding-bottom: 20rem;
+}
+.MedelFyllningBotten {
+    padding-bottom: 15rem;
+}
+.LitenFyllningBotten {
+    padding-bottom: 10rem;
+}
+
+.CentreraText {
+    text-align: center;
+}

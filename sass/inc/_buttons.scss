@@ -26,6 +26,20 @@ input[type="submit"] {
 
 .btn.btn-primary,
 input[type="submit"] {
+  background: transparent;
+  border: 2px solid $primary-color;
+  color: $primary-color;
+  text-transform: uppercase;
+  padding: 1rem 3rem;
+
+  &:hover {
+    background: $primary-color;
+    border-color: $primary-color;
+    color: $white;
+  }
+}
+
+.btn.btn-secondary {
   background: $primary-color;
   color: $primary-text-color;
 
@@ -34,22 +48,16 @@ input[type="submit"] {
   }
 }
 
-.btn.btn-secondary {
-  background: $secondary-color;
-  color: $secondary-text-color;
-
-  &:hover {
-    background: $secondary-dark-color;
-  }
-}
-
 .btn.btn-inverse {
   background: transparent;
   border: 2px solid $primary-color;
   color: $primary-color;
+  text-transform: uppercase;
+  padding: 1rem 3rem;
 
   &:hover {
     background: $primary-color;
+    border-color: $primary-color;
     color: $bg-color;
   }
 }
