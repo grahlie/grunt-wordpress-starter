@@ -1,5 +1,6 @@
 // Information about URL for page
-var name = 'wordpress';
+var cwd = process.cwd(),
+    name = cwd.substr(cwd.lastIndexOf('/') + 1);
 
 module.exports = function(grunt) {
   grunt.initConfig({

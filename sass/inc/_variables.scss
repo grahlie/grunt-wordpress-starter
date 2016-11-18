@@ -4,7 +4,9 @@ $site-main: 100%;
 $site-sidebar: 25%;
 $site-sidebar_float: right;
 $site-margin: 3rem;
-$radius: 0.3rem;
+$site-size: 10px;
+$radius: 0;
 
-@import 'colors';
-@import 'typography';
+@import 'variables/colors';
+@import 'variables/typography';
+@import 'variables/buttons';

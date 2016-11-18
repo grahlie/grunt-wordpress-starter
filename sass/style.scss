@@ -1,25 +1,24 @@
 /*
-Theme Name: Röös Mekaniska
+Theme Name: Grunt WordPress starterkit
 Author: @grahlie
 Author URI: http://grahlie.se
 Description: Standard theme
-Version: 1.0.0
+Version: 1.0.1
 Text Domain: grahlie
 Tags:
 */
 
+/* Init variables */
 @import "inc/variables";
+
+/* Init mixins */
 @import "inc/mixins";
 
-@import "normalize";
+/* Init normalize */
+@import "inc/normalize";
 
-@import "inc/layout";
-@import "inc/post";
-@import "inc/navigation";
-@import "inc/text";
-@import "inc/elements";
-@import "inc/buttons";
-@import "inc/media";
-//@import "inc/infinite-scroll";
-@import "inc/grahlie";
-@import "inc/default";
+/* Init design */
+@import "inc/design";
+
+/* WordPress classes */
+@import "inc/class";

@@ -14,7 +14,6 @@ body {
 
 .entry-content,
 .comment-content,
-.site-header,
 .site-content,
 .site-footer,
 .entry-footer,
@@ -39,8 +38,7 @@ body {
   margin-bottom: 10rem;
 }
 
-body:not(.home) .site,
-.site-header {
+body:not(.home) .site {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;

@@ -1,25 +1,3 @@
-.header-content {
-  @include clearfix();
-  height: 8rem;
-  margin-bottom: 2rem;
-  padding-top: 2rem;
-}
-
-.header-image {
-  background-size: cover;
-  background-position: center center;
-  height: 50rem;
-  margin-bottom: 4rem;
-  padding: 2rem 2rem 0;
-}
-
-.site-branding {
-  display: inline-block;
-  float: left;
-  margin-right: 2rem;
-  width: 25rem;
-}
-
 #nav-trigger {
   display: none;
   visibility: hidden;

@@ -1,0 +1,143 @@
+// Buttons
+button,
+.btn,
+.btn.btn-primary,
+.btn.btn-inverse.active,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    background: $button-primary-bg-color;
+    border-color: $button-primary-border-color;
+    border-style: $button-border-style;
+    border-width: $button-border-width;
+    border-radius: $radius;
+    color: $button-primary-text-color;
+    display: inline-block;
+    font-family: $button-font;
+    font-size: $button-font-size;
+    font-weight: $button-font-weight;
+    line-height: $button-line-height;
+    padding: $button-padding;
+    text-align: $button-text-align;
+    text-decoration: none;
+    text-transform: $button-text-transform;
+
+    &:hover {
+      background: $button-primary-bg-color-hover;
+      border-color: $button-primary-border-color-hover;
+      color: $button-primary-text-color-hover;
+    }
+
+    &:active,
+    &:focus,
+    &:visited {
+      outline: none;
+    }
+
+    @include breakpoint(phone-and-tablet) {
+        margin-bottom: 2rem;
+    }
+}
+
+.btn.btn-secondary {
+  background: $button-secondary-bg-color;
+  border-color: $button-secondary-border-color;
+  color: $button-secondary-text-color;
+
+  &:hover {
+    background: $button-secondary-bg-color-hover;
+    border-color: $button-secondary-border-color-hover;
+    color: $button-secondary-text-color-hover;
+  }
+}
+
+.btn.btn-inverse {
+  background: transparent;
+  border-color: $button-primary-bg-color;
+  color: $button-primary-bg-color;
+
+  &:hover {
+    background: $button-primary-bg-color;
+    border-color: $button-primary-bg-color;
+    color: $button-primary-text-color;
+  }
+}
+
+.btn.btn-success {
+  background: $success-color;
+  color: $message-text-color;
+
+  &:hover {
+    background: $success-dark-color;
+  }
+}
+
+.btn.btn-warning {
+  background: $warning-color;
+  color: $message-text-color;
+
+  &:hover {
+    background: $warning-dark-color;
+  }
+}
+
+.btn.btn-danger {
+  background: $danger-color;
+  color: $message-text-color;
+
+  &:hover {
+    background: $danger-dark-color;
+  }
+}
+
+/*
+ * Sizes
+ */
+.btn {
+    &.size3,
+    &.size4, 
+    &.size6 {
+        margin-right: 1rem;
+        
+        @include breakpoint(phone-and-tablet) {
+          margin-right: 0;
+        }
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+
+    &.size3 {
+        @include breakpoint(phone-and-tablet) {
+          max-width: 100%;
+        }
+
+        width: 28rem;
+    }
+
+    &.size4 {
+        @include breakpoint(phone-and-tablet) {
+          max-width: 100%;
+        }
+
+        width: 38rem;
+    }
+
+    &.size6 {
+        @include breakpoint(phone-and-tablet) {
+          max-width: 100%;
+        }
+
+        width: 58rem;
+    }
+
+    &.size12 {
+        @include breakpoint(phone-and-tablet) {
+          max-width: 100%;
+        }
+
+        width: 120rem;
+        margin: 0;
+    }
+}
