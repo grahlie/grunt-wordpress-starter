@@ -1,0 +1,22 @@
+.site-footer {
+  background: $primary-dark-color;
+  color: $primary-text-color;
+  clear: both;
+  font-size: $font-size-footer;
+  width: $site-main;
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  a {
+    color: $white;
+    cursor: pointer;
+    text-decoration: underline;
+
+    &:hover {
+      color: $grey;
+    }
+  }
+}

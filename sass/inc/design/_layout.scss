@@ -44,18 +44,6 @@ body:not(.home) .site {
   padding: 0 2rem;
 }
 
-.site-footer {
-  background: $secondary-color;
-  color: $white;
-  clear: both;
-  width: $site-main;
-
-  .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-}
-
 // Sidebar layout
 .widget-area {
   display: none;
