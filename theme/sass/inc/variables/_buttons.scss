@@ -1,0 +1,33 @@
+// Global
+$button-font: $font;
+$button-font-size: 1.8rem;
+$button-font-weight: 700;
+$button-line-height: 1.9rem;
+$button-text-transform: uppercase;
+$button-text-align: center;
+
+$button-padding: 2rem 4rem;
+
+$button-border-style: solid;
+$button-border-width: 2px;
+
+// Primary
+$button-primary-bg-color: #D3162B;
+$button-primary-bg-color-hover: #930F1E;
+$button-primary-bg-color-focus: #D3162B;
+$button-primary-text-color: #fff;
+$button-primary-text-color-hover: #fff;
+
+$button-primary-border-color: #D3162B;
+$button-primary-border-color-hover: #fff;
+
+
+// Secondary
+$button-secondary-bg-color: $secondary-color;
+$button-secondary-bg-color-hover: $secondary-dark-color;
+$button-secondary-bg-color-focus: $secondary-color;
+$button-secondary-text-color: $secondary-text-color;
+$button-secondary-text-color-hover: $secondary-text-color;
+
+$button-secondary-border-color: $secondary-color;
+$button-secondary-border-color-hover: $secondary-dark-color;

@@ -1,7 +1,7 @@
 {
-  "name": "wordpress-sass-template",
+  "name": "wordpress-grunt-installation",
   "version": "1.0.2",
-  "description": "Boilerplate with most needed grunt libraries.",
+  "description": "A WordPress starter kit. That downloads wordpress using grunt and starting a docker container.",
   "homepage": "http://grahlie.se/",
   "author": {
     "name": "Mathias Grahl",
@@ -9,17 +9,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/grahlie/wordpress-sass-template"
+    "url": "https://github.com/grahlie/grunt-wordpress-starter"
   },
   "devDependencies": {
-    "browser-sync": "latest",
-    "bulma": "0.0.17",
-    "grunt": "latest",
-    "grunt-autoprefixer": "latest",
-    "grunt-browser-sync": "latest",
-    "grunt-contrib-jshint": "latest",
-    "grunt-contrib-sass": "latest",
-    "grunt-contrib-uglify": "latest",
-    "grunt-contrib-watch": "latest"
+    "browser-sync": "^2.18.8",
+    "grunt": "^1.0.1",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^2.2.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-curl": "^2.2.0",
+    "grunt-zip": "^0.17.1"
   }
 }

@@ -1,20 +1,73 @@
-// Information about URL for page
-var cwd = process.cwd(),
-    name = cwd.substr(cwd.lastIndexOf('/') + 1);
-
 module.exports = function(grunt) {
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    config: {
+      pkg: grunt.file.readJSON('package.json'),
+      // name: path.basename(process.cwd()),
+      name: 'grunt-wordpress-starter',
+      deploy: '/Volumes/Storage/www/',
+      wp: {
+        version: 'wordpress-4.7.3-sv_SE',
+        link: 'https://sv.wordpress.org/'
+      },
+    },
+
+    // Download packages from other places
+    'curl-dir': {
+      'downloads/': [
+        '<%= config.wp.link %><%= config.wp.version %>.zip',
+      ],
+    },
+
+    // Unzip downloaded folders
+    unzip: {
+      'extracted/': 'downloads/<%= config.wp.version %>.zip',
+    },
+
+    // Remove stuff from WordPress intallation
+    clean: {
+      wp: [
+        'extracted/wordpress/wp-content/themes/twenty*',
+        'extracted/wordpress/wp-content/themes/index.php',
+        'extracted/wordpress/wp-content/plugins/akismet',
+        'extracted/wordpress/wp-content/plugins/hello.php',
+      ],
+      sass: [
+        'extracted/wordpress/wp-content/themes/grahlie/style.css.map',
+        'extracted/wordpress/wp-content/themes/grahlie/sass',
+      ],
+      js: [
+        'extracted/wordpress/wp-content/themes/grahlie/js/development',
+      ]
+    },
+
+    copy: {
+      build: {
+        files: [{
+          expand: true,
+          cwd: 'theme/',
+          src: ['**'],
+          dest: 'extracted/wordpress/wp-content/themes/grahlie/'
+        }]
+      },
+      deploy: {
+        files: [{
+          expand: true,
+          cwd: 'extracted/wordpress/',
+          src: '**',
+          dest: '<%= config.deploy %><%= config.name %>',
+        }]
+      }
+    },
 
     // CSS
     // Compile style.scss and compress it
     sass: {
       production: {
         options: {
-          style: 'expanded'
+          style: 'compressed'
         },
         files: {
-          'style.css': 'sass/style.scss'
+          'extracted/wordpress/wp-content/themes/grahlie/style.css': 'extracted/wordpress/wp-content/themes/grahlie/sass/style.scss'
         }
       },
       dev: {
@@ -22,18 +75,17 @@ module.exports = function(grunt) {
           style: 'expanded'
         },
         files: {
-          'style.css': 'sass/style.scss'
+          'extracted/wordpress/wp-content/themes/grahlie/style.css': 'extracted/wordpress/wp-content/themes/grahlie/sass/style.scss'
         }
       }
     },
     autoprefixer:{
       dist:{
         files:{
-          'style.css':'style.css'
+          'extracted/wordpress/wp-content/themes/grahlie/style.css':'extracted/wordpress/wp-content/themes/grahlie/style.css'
         }
       }
     },
-    
 
     
     // JS
@@ -46,7 +98,7 @@ module.exports = function(grunt) {
     uglify: {
       production: {
         files: {
-          'js/scripts.min.js': ['js/development/**/*.js']
+          'extracted/wordpress/wp-content/themes/grahlie/js/scripts.min.js': ['extracted/wordpress/wp-content/themes/grahlie/js/development/**/*.js']
         }
       },
       dev: {
@@ -55,7 +107,7 @@ module.exports = function(grunt) {
           beautify: true
         },
         files: {
-          'js/scripts.min.js': ['js/development/**/*.js']
+          'extracted/wordpress/wp-content/themes/grahlie/js/scripts.min.js': ['extracted/wordpress/wp-content/themes/grahlie/js/development/**/*.js']
         }
       }
     },
@@ -63,41 +115,39 @@ module.exports = function(grunt) {
 
 
     // WATCH
-    // Watch for changes in js and scss files
     watch: {
+      options: {
+        livereload: true,
+      },
+      php: {
+        files: ['theme/**.php'],
+        tasks: ['copy']
+      },
       css: {
-        files: ['sass/*.scss', 'sass/**/*.scss'],
-        tasks: ['sass:dev', 'autoprefixer']
+        files: ['theme/sass/**/*.scss'],
+        tasks: ['copy:build', 'sass:dev', 'autoprefixer', 'clean:sass', 'copy:deploy']
       },
       js: {
-        files: ['js/development/**/*.js'],
-        tasks: ['jshint', 'uglify:dev']
-      }
-    },
-    // Updates all browsers
-    browserSync: {
-      default_options: {
-        bsFiles: {
-          src : ['*.html', '*.php', '**/*.php', '*.css', 'js/*.js']
-        },
-        options: {
-          watchTask: true,
-          proxy: "dev." + name + ".se"
-        }
+        files: ['theme/js/development/**/*.js'],
+        tasks: ['copy:build', 'jshint', 'uglify:dev', 'clean:js', 'copy:deploy']
       }
     }
   });
 
   // GRUNT LOADS
+  grunt.loadNpmTasks('grunt-curl');
+  grunt.loadNpmTasks('grunt-zip');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
 
   // GRUNT TRIGGERS
-  grunt.registerTask('dev', ['jshint', 'uglify:dev', 'sass:dev', 'autoprefixer', 'browserSync', 'watch']);
-  grunt.registerTask('production', ['jshint', 'uglify:production', 'sass:production', 'autoprefixer']);
+  grunt.registerTask('default', ['curl-dir', 'unzip', 'jshint', 'copy:build', 'uglify:dev', 'sass:dev', 'autoprefixer', 'clean', 'copy:deploy']);
+  grunt.registerTask('production', ['curl-dir', 'unzip', 'jshint', 'copy:build', 'uglify:production', 'sass:production', 'autoprefixer', 'clean', 'copy:deploy']);
 
 }

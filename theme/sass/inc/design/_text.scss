@@ -1,0 +1,145 @@
+html {
+  font-size: $site-size;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  color: $text-color;
+  font-family: $font;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: $font-line-height;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font;
+  font-weight: 300;
+  clear: both;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.hentry {
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child {
+    margin: 0;
+  }
+}
+
+h1 {
+  font-size: $h1-font-size;
+
+  &.entry-title {
+    font-size: $h2-font-size*1.5;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+h2 {
+  font-size: $h2-font-size;
+
+  &.entry-title {
+    font-size: $h2-font-size*1.5;
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+h3 {
+  font-size: $h3-font-size;
+}
+
+h4 {
+  font-size: $h4-font-size;
+}
+
+h5 {
+  font-size: $h5-font-size;
+}
+
+h6 {
+  font-size: $h6-font-size;
+}
+
+.site-title {
+    margin-top: 0;
+}
+
+p {
+  margin: $font-margin 0;
+}
+
+// Code, acronym, quotes
+dfn, cite, em, i {
+  font-style: italic;
+}
+
+blockquote {
+  margin: 0 $font-margin;
+}
+
+address {
+  margin: $font-margin 0;
+}
+
+pre {
+  background: $pre-bg-color;
+  font-family: $font-pre;
+  font-size: 1.2rem;
+  line-height: $font-line-height-pre;
+  margin: $font-margin 0;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1.6rem;
+}
+
+code, kbd, tt, var {
+  font-family: $font-code;
+  font-size: $font-size;
+}
+
+abbr, acronym {
+  border-bottom: to-rem(1px) dotted $border-color;
+  cursor: help;
+}
+
+mark, ins {
+  background: $ins-bg-color;
+  text-decoration: none;
+}
+
+big {
+  font-size: 125%;
+}
+
+// Links
+a {
+  color: $link-color;
+  transition: all .5s ease;
+
+  &:visited {
+    color: $link-color;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    color: $link-color-hover;
+  }
+  &:focus {
+    outline: thin dotted;
+  }
+  &:hover,
+  &:active {
+    outline: 0;
+  }
+}

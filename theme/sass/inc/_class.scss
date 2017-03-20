@@ -1,0 +1,132 @@
+/*
+ * Backgroundcolors
+ */
+.Grey {
+    background: $grey;
+}
+.LightGrey {
+    background: $lightgrey;
+}
+.Black {
+    background: $black;
+}
+.White {
+    background: $white;
+}
+.Primary {
+    background: $primary-color;
+}
+.Secondary {
+    background: $secondary-color;
+}
+
+/*
+ * Horizontal margin
+ */
+.row.MarginCenter {
+    margin: 0 auto;
+}
+/*
+ * Extra margin
+ */
+.StorMarginalBotten {
+    margin-bottom: 20rem;
+}
+.MedelMarginalBotten {
+    margin-bottom: 15rem;
+}
+.LitenMarginalBotten {
+    margin-bottom: 5rem;
+}
+.MiniMarginalBotten {
+    margin-bottom: 3.5rem;
+}
+.StorMarginalTopp {
+    margin-top: 20rem;
+}
+.MedelMarginalTopp {
+    margin-top: 15rem;
+}
+.LitenMarginalTopp {
+    margin-top: 5rem;
+}
+
+/*
+ * Extra padding
+ */
+.StorFyllningTopp {
+    padding-top: 20rem;
+
+    @include breakpoint(phone-and-tablet) {
+        padding: 2rem 0;
+    }
+}
+.MedelFyllningTopp {
+    padding-top: 15rem;
+
+    @include breakpoint(phone-and-tablet) {
+        padding: 2rem 0;
+    }
+}
+.LitenFyllningTopp {
+    padding-top: 10rem;
+
+    @include breakpoint(phone-and-tablet) {
+        padding: 2rem 0;
+    }
+}
+.StorFyllningBotten {
+    padding-bottom: 20rem;
+
+    @include breakpoint(phone-and-tablet) {
+        padding: 2rem 0;
+    }
+}
+.MedelFyllningBotten {
+    padding-bottom: 15rem;
+
+    @include breakpoint(phone-and-tablet) {
+        padding: 2rem 0;
+    }
+}
+.LitenFyllningBotten {
+    padding-bottom: 10rem;
+
+    @include breakpoint(phone-and-tablet) {
+        padding: 2rem 0;
+    }
+}
+
+/*
+ * Text styling
+ */
+.CentreraText {
+    text-align: center;
+}
+.BigText {
+    text-transform: uppercase;
+}
+
+/*
+ * Buttom styling
+ */
+.CentreraKnapp {
+    margin: 0 auto !important;
+    display: block;
+}
+
+/*
+ * Text colors
+ */
+.WhiteColor {
+    color: $white;
+}
+.BlackColor {
+    color: $black;
+}
+.PrimaryColor {
+    color: $primary-color;
+}
+.SecondaryColor {
+    color: $secondary-color;
+}

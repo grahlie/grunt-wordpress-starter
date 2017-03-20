@@ -1,0 +1,92 @@
+blockquote, q {
+  font-style: italic;
+  font-size: 90%;
+}
+
+hr {
+  background-color: $hr-color;
+  border: 0;
+  height: 1px;
+  margin: $font-margin 0;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+// Lists
+ul, ol {
+  padding: 0;
+  margin: 0 0 $font-margin 2rem;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 1.5rem;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 0 1.5rem $font-margin;
+}
+
+// Tables
+table {
+  margin: 0 0 $font-margin;
+  width: 100%;
+}
+
+// Inputs
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  border-radius: $radius;
+  border: 0.1rem solid $input-border-color;
+  color: $input-text-color;
+  font-size: 16px;
+  padding: 0.3rem;
+  box-shadow: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+select {
+  border: 0.1rem solid $input-border-color;
+  max-width: 100%;
+}
+
+textarea {
+  width: 100%;
+}
