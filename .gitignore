@@ -21,3 +21,4 @@ node_modules
 .sass-cache/
 downloads
 extracted
+docker/docker-compose.yml
