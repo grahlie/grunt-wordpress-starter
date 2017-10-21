@@ -1,11 +1,14 @@
-FROM phusion/baseimage:latest
+FROM php:7.0-apache
 
 RUN apt-get update && \
-	apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-mysql php5-curl && \
-	apt-get clean && \
-	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+	apt-get install -y --force-yes nano bash less \
+	mysql-client && \
+	apt-get clean
 
-COPY wp-config.php /wp-config.php
+# Get necessary files for WordPress installation
 COPY .htaccess /.htaccess
+COPY start_container.sh /start.container.sh
 
-RUN a2enmod rewrite proxy_http
+# RUN a2enmod rewrite proxy_http
+
+ENTRYPOINT start_container.sh

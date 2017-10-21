@@ -1,26 +1,18 @@
 module.exports = function(grunt) {
   grunt.initConfig({
-    config: {
       pkg: grunt.file.readJSON('package.json'),
-      // name: path.basename(process.cwd()),
-      name: 'grunt-wordpress-starter',
-      deploy: '/Volumes/Storage/www/',
-      wp: {
-        version: 'wordpress-4.7.3-sv_SE',
-        link: 'https://sv.wordpress.org/'
-      },
-    },
+      config: grunt.file.readJSON('config.json'),
 
     // Download packages from other places
     'curl-dir': {
       'downloads/': [
-        '<%= config.wp.link %><%= config.wp.version %>.zip',
+        '<%= config.grunt.wp.link %><%= config.grunt.wp.version %>.zip',
       ],
     },
 
     // Unzip downloaded folders
     unzip: {
-      'extracted/': 'downloads/<%= config.wp.version %>.zip',
+      'extracted/': 'downloads/<%= config.grunt.wp.version %>.zip',
     },
 
     // Remove stuff from WordPress intallation
@@ -54,7 +46,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'extracted/wordpress/',
           src: '**',
-          dest: '<%= config.deploy %><%= config.name %>',
+          dest: '<%= config.grunt.deploy %><%= config.name %>',
         }]
       }
     },

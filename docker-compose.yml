@@ -1,4 +1,0 @@
-wordpress:
-    image: wordpress
-    ports:
-        - 8080:80
