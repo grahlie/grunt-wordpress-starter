@@ -1,4 +1,4 @@
-FROM php:7.0-apache
+FROM phusion/baseimage
 
 RUN apt-get update && \
 	apt-get install -y --force-yes nano bash less \
@@ -7,8 +7,10 @@ RUN apt-get update && \
 
 # Get necessary files for WordPress installation
 COPY .htaccess /.htaccess
-COPY start_container.sh /start.container.sh
+COPY ./start_container.sh /start_container.sh
 
-# RUN a2enmod rewrite proxy_http
+RUN chmod +x start_container.sh
 
-ENTRYPOINT start_container.sh
+EXPOSE 80
+
+# CMD [ "php" ]

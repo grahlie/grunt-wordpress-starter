@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Copy files to the right place
 cp /.htaccess /var/www/html/.htaccess
@@ -17,8 +17,8 @@ echo "define('DB_HOST', '"$DBHOST"');"     >>/var/www/html/wp-config.php
 echo "\$table_prefix  = '"$DBNAME"';"      >>/var/www/html/wp-config.php
 
 # Setup domain
-echo "define('WP_SITEURL', 'http://'"$DOMAIN"');" >>/var/www/html/wp-config.php
-echo "define('WP_HOME', 'http://'"$DOMAIN"');"    >>/var/www/html/wp-config.php
+echo "define('WP_SITEURL', 'http://"$DOMAIN");"   >>/var/www/html/wp-config.php
+echo "define('WP_HOME', 'http://"$DOMAIN");"      >>/var/www/html/wp-config.php
 echo "define('WP_DEFAULT_THEME', 'grahlie');"     >>/var/www/html/wp-config.php
 echo "define('DB_CHARSET', 'utf8');"              >>/var/www/html/wp-config.php
 echo "define('DB_COLLATE', '');"                  >>/var/www/html/wp-config.php
