@@ -46,7 +46,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'extracted/wordpress/',
           src: '**',
-          dest: '<%= config.grunt.deploy %><%= config.name %>',
+          dest: '<%= config.grunt.deploy %>',
         }]
       }
     },

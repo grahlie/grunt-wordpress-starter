@@ -10,11 +10,7 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php echo grahlie_use_favicon(); ?>
-<title>
-<?php
-    echo grahlie_pretty_title( '-' );
-?>
-</title>
+<title><?php echo grahlie_pretty_title( '-' ); ?></title>
 
 <?php wp_head(); ?>
 </head>
