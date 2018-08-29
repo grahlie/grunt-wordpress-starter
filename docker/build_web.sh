@@ -65,12 +65,13 @@ if ! [ -e $dockercompose ]; then
     echo "    build: ."                           >> ./docker-compose.yml
     echo "    volumes:"                           >> ./docker-compose.yml
     echo "      - "$FOLDER"/:/var/www/"           >> ./docker-compose.yml
-    echo "    ports:"                             >> ./docker-compose.yml
-    echo "      - '"$PORT":80'"                   >> ./docker-compose.yml
+    echo "    expose:"                            >> ./docker-compose.yml
+    echo "      - 80"                             >> ./docker-compose.yml
     echo "    depends_on:"                        >> ./docker-compose.yml
     echo "      - "$NAME"-db"                     >> ./docker-compose.yml
     echo "    restart: always"                    >> ./docker-compose.yml
     echo "    environment:"                       >> ./docker-compose.yml
+    echo "      VIRTUAL_HOST:" $DOMAIN            >> ./docker-compose.yml
     echo "      DBNAME:" $DBNAME                  >> ./docker-compose.yml
     echo "      DBUSER:" $DBUSER                  >> ./docker-compose.yml
     echo "      DBPASS:" $DBPASS                  >> ./docker-compose.yml
@@ -78,6 +79,10 @@ if ! [ -e $dockercompose ]; then
     echo "      DOMAIN:" $DOMAIN                  >> ./docker-compose.yml
     echo "      DEBUG:" '$DEBUG'                  >> ./docker-compose.yml
     echo "    container_name: " $NAME             >> ./docker-compose.yml
+    echo "networks:"                              >> ./docker-compose.yml
+    echo "  default:"                             >> ./docker-compose.yml
+    echo "    external:"                          >> ./docker-compose.yml
+    echo "      name: nginx-proxy"                >> ./docker-compose.yml
 fi
 
 
