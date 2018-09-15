@@ -13,7 +13,8 @@
         "dbuser": "wpdev",
         "dbpass": "wpdev",
         "dbvolume": "/Users/grahlie/Github/grunt-wordpress-starter/mysql",
-        "debug": "false",
+        "debug": 0,
+        "multisite": 0,
         "port": 80,
         "machine": "dinghy"
     }

@@ -1,0 +1,11 @@
+opcache.enable=1
+opcache.memory_consumption=128
+opcache.max_accelerated_files=4000
+opcache_revalidate_freq=12
+
+display_errors = Off
+html_errors = Off
+error_reporting = E_ERROR
+expose_php = Off
+
+upload_max_filesize = 64M

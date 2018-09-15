@@ -9,19 +9,27 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
 	apt-get install -y --force-yes nano bash less iputils-ping \
-	apache2 \
+	apache2 sendmail \
 	php7.0 libapache2-mod-php7.0 php7.0-mysql php7.0-gd php7.0-opcache \
 	mysql-client && \
 	apt-get clean
 
-# Get necessary files for WordPress installation
-ADD .htaccess /.htaccess
-ADD start_container.sh /start_container.sh
-ADD wordpress.sql wordpress.sql
+# Settings for Apache
+RUN rm -rf /var/www/html
 ADD apache_config.conf /etc/apache2/sites-enabled/000-default.conf
 
-# Wordpress Initialization and Startup Script
-RUN "/start_container.sh"
+# Settings for PHP
+ADD php_config /php_config
+RUN cat /php_config >> /etc/php/7.0/apache2/php.ini
+RUN phpenmod opcache
+
+# Get necessary files for WordPress
+ADD database.sql database.sql
+
+# Wordpress init script
+ADD wordpress.sh /wordpress.sh
+RUN chmod +x /wordpress.sh
+RUN /wordpress.sh
 
 EXPOSE 80
 

@@ -23,6 +23,7 @@ DBPASS=$(jq .docker.dbpass $FILE)
 DBVOLUME=$(jq .docker.dbvolume $FILE)
 DEBUG=$(jq .docker.debug $FILE)
 MACHINE=$(jq .docker.machine $FILE)
+MULTISITE=$(jq .docker.multisite $FILE)
 
 echo "3) Strip specialchars from JSON value"
 # TODO: Find a solution to loop this
@@ -46,6 +47,8 @@ DEBUG="${DEBUG%\"}"
 DEBUG="${DEBUG#\"}"
 MACHINE="${MACHINE%\"}"
 MACHINE="${MACHINE#\"}"
+MULTISITE="${MULTISITE%\"}"
+MULTISITE="${MULTISITE#\"}"
 
 echo "4) Create compose file"
 dockercompose="./docker-compose.yml"
@@ -77,7 +80,8 @@ if ! [ -e $dockercompose ]; then
     echo "      DBPASS:" $DBPASS                             >> ./docker-compose.yml
     echo "      DBHOST:" $NAME"-db"                          >> ./docker-compose.yml
     echo "      DOMAIN:" $DOMAIN                             >> ./docker-compose.yml
-    echo "      DEBUG:" '$DEBUG'                             >> ./docker-compose.yml
+    echo "      DEBUG:" $DEBUG                               >> ./docker-compose.yml
+    echo "      MULTISITE:" $MULTISITE                       >> ./docker-compose.yml
     echo "    container_name: " $NAME                        >> ./docker-compose.yml
     echo "  nginx-proxy:"                                    >> ./docker-compose.yml
     echo "    image: jwilder/nginx-proxy"                    >> ./docker-compose.yml
@@ -106,9 +110,14 @@ echo "8) Configure hosts file"
 sudo cp /etc/hosts /etc/hosts.backup
 
 # Add container to hosts
-# TODO: Adds multiple
 HOSTIP="$(docker-machine ip $MACHINE)"
-sudo -- sh -c "echo $HOSTIP $DOMAIN >> /etc/hosts"
+if grep -Fxq "$HOSTIP $DOMAIN" /etc/hosts
+then
+    echo "Already exists in host file"
+else
+    echo "Added to host file"
+    sudo -- sh -c "echo $HOSTIP $DOMAIN >> /etc/hosts"
+fi
 
 # Remove Backup
 # sudo rm /etc/hosts.backup
