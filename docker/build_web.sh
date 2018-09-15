@@ -107,17 +107,11 @@ echo "7) Compose up"
 docker-compose up -d
 
 echo "8) Configure hosts file"
-sudo cp /etc/hosts /etc/hosts.backup
-
-# Add container to hosts
 HOSTIP="$(docker-machine ip $MACHINE)"
-if grep -Fxq "$HOSTIP $DOMAIN" /etc/hosts
-then
+if grep -Fxq "$HOSTIP $DOMAIN" /etc/hosts; then
     echo "Already exists in host file"
 else
     echo "Added to host file"
+    sudo cp /etc/hosts /etc/hosts.backup
     sudo -- sh -c "echo $HOSTIP $DOMAIN >> /etc/hosts"
 fi
-
-# Remove Backup
-# sudo rm /etc/hosts.backup

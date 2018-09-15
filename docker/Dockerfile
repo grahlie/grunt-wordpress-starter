@@ -29,7 +29,8 @@ ADD database.sql database.sql
 # Wordpress init script
 ADD wordpress.sh /wordpress.sh
 RUN chmod +x /wordpress.sh
-RUN /wordpress.sh
+# TODO: This dosn't run
+# RUN /wordpress.sh
 
 EXPOSE 80
 

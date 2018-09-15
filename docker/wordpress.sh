@@ -64,6 +64,7 @@ echo "define('WP_HOME', 'http://"$DOMAIN"');"          >>/var/www/wp-config.php
 echo "define('WP_DEFAULT_THEME', 'grahlie');"          >>/var/www/wp-config.php
 echo "define('DB_CHARSET', 'utf8mb4');"                >>/var/www/wp-config.php
 echo "define('DB_COLLATE', '');"                       >>/var/www/wp-config.php
+echo "define('FS_METHOD', 'direct');"                  >>/var/www/wp-config.php
 
 echo ""                                                >>/var/www/wp-config.php
 
