@@ -74,7 +74,7 @@ curl -s https://api.wordpress.org/secret-key/1.1/salt/ >>/var/www/wp-config.php
 echo ""                                                >>/var/www/wp-config.php
 
 # Other settings
-# echo "define('WP_DEBUG', '"$DEBUG"');"                 >>/var/www/wp-config.php
+echo "define('WP_DEBUG', false);"                      >>/var/www/wp-config.php
 echo "define('WP_AUTO_UPDATE_CORE', false);"           >>/var/www/wp-config.php
 echo "define('WP_MEMORY_LIMIT', '96M');"               >>/var/www/wp-config.php
 echo "define( 'WP_POST_REVISIONS', 100 );"             >>/var/www/wp-config.php
@@ -82,12 +82,10 @@ echo "if ( !defined('ABSPATH') )"                      >>/var/www/wp-config.php
 echo "  define('ABSPATH', dirname(__FILE__) . '/');"   >>/var/www/wp-config.php
 echo "require_once(ABSPATH . 'wp-settings.php');"      >>/var/www/wp-config.php
 
-echo "3) Import database"
-# mysql --host="$DBHOST" --user="$DBUSER" --password="$DBPASS" "$DBNAME" < wordpress.sql
-
-echo "4) Setup Wordpress folders"
+echo "3) Setup Wordpress folders"
 mkdir -p /var/www/wp-content/uploads
 # chown -R www-data:www-data /var/www/wp-content
 
-echo "5) Install sendmail"
+# echo "4) Install sendmail"
+# export HOSTNAME="$DOMAIN"
 # yes | sendmail

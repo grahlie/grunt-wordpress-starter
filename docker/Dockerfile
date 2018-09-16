@@ -9,8 +9,8 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
 	apt-get install -y --force-yes nano bash less iputils-ping \
-	apache2 sendmail \
-	php7.0 libapache2-mod-php7.0 php7.0-mysql php7.0-gd php7.0-opcache \
+	apache2 mailutils \
+	php libapache2-mod-php7.0 php7.0-mysql php7.0-gd \
 	mysql-client && \
 	apt-get clean
 
@@ -29,8 +29,6 @@ ADD database.sql database.sql
 # Wordpress init script
 ADD wordpress.sh /wordpress.sh
 RUN chmod +x /wordpress.sh
-# TODO: This dosn't run
-# RUN /wordpress.sh
 
 EXPOSE 80
 
