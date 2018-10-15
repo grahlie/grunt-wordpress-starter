@@ -99,7 +99,7 @@ function grahlie_scripts() {
 	wp_enqueue_style( 'grahlie-style', get_stylesheet_uri() );
 
 	wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js');
-	wp_enqueue_script('grahlie-script', get_template_directory_uri() . '/js/scripts.min.js', array(), true);
+	wp_enqueue_script('grahlie-script', get_template_directory_uri() . '/js/scripts.min.js', array('jquery'), true);
 
 	// Enqueue only reply js on single post page
 	if ( !is_page() && comments_open() && get_option( 'thread_comments' ) ) {

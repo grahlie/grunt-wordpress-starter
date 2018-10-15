@@ -135,9 +135,6 @@ a {
   &:active {
     color: $link-color-hover;
   }
-  &:focus {
-    outline: thin dotted;
-  }
   &:hover,
   &:active {
     outline: 0;

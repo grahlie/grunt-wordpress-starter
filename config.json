@@ -1,20 +1,16 @@
 {
     "name": "grunt-wordpress-starter",
     "grunt": {
-        "deploy": "/Users/grahlie/Github/grunt-wordpress-starter/deploy",
-        "wp": {
-            "version": "wordpress-4.7.3-sv_SE",
-            "link": "https://sv.wordpress.org/"
-        }
+        "deploy": "/Users/grahlie/Github/grunt-wordpress-starter/deploy/grunt-wordpress-starter"
     },
     "docker": {
         "domain": "gruntwordpresstarter.local",
         "dbname": "wp_grunt_wordpress_starter",
         "dbuser": "wpdev",
         "dbpass": "wpdev",
-        "dbvolume": "/Users/grahlie/Github/grunt-wordpress-starter/mysql",
         "debug": 0,
         "multisite": 0,
+        "version": "4.7.3",
         "port": 80,
         "machine": "dinghy"
     }
