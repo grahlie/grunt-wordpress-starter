@@ -1,7 +1,9 @@
-opcache.enable=1
 opcache.memory_consumption=128
+opcache.interned_strings_buffer=8
 opcache.max_accelerated_files=4000
-opcache_revalidate_freq=12
+opcache.revalidate_freq=2
+opcache.fast_shutdown=1
+opcache.enable_cli=1
 
 display_errors = Off
 html_errors = Off
@@ -9,3 +11,6 @@ error_reporting = E_ERROR
 expose_php = Off
 
 upload_max_filesize = 64M
+max_execution_time = 300
+
+# cgi.fix_pathinfo = 0;
