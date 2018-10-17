@@ -1,7 +1,7 @@
 {
     "name": "grunt-wordpress-starter",
     "grunt": {
-        "deploy": "/Users/grahlie/Github/grunt-wordpress-starter/deploy/grunt-wordpress-starter"
+        "deploy": "./grunt-wordpress-starter"
     },
     "docker": {
         "domain": "gruntwordpresstarter.local",

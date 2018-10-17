@@ -1,21 +1,14 @@
 # grunt-wordpress-starter
-This is my personal preferences from the popular underscore wordpress starter kit, I have changed file structure and other functions for my own personal use.
-I dont take any credit for this instead visit http://underscores.me for more information.
+This is my personal preferences from the popular underscore wordpress starter kit, I have changed file structure for the WordPress theme files and added docker images to make it work nice & smooth. Have also my prefered task-runner Grunt installed with the repo.
+
+## Start everything up
+If you are new to this repo you should first take a look at the config.json file where you can find every settings used across different instances.
+After that you should take a look at run.sh and you can fire it up by running ./run.sh dev
+
+## _s
+I dont take any credit for this starter theme instead visit http://underscores.me for more information.
 
 ## WordPress
+Have my own created framework and settings page for this theme installed and other special feature that is pretty standard for starting your WordPress web.
+
 Login credentials: devadmin / HFChFH19m2KuXn#*$5
-
-# _s
-Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
-
-My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
-
-* A just right amount of lean, well-commented, modern, HTML5 templates.
-* A helpful 404 template.
-* A sample custom header implementation in `inc/custom-header.php` that can be activated by uncommenting one line in `functions.php` and adding the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
-* Custom template tags in `inc/template-tags.php` that keep your templates clean and neat and prevent code duplication.
-* Some small tweaks in `inc/extras.php` that can improve your theming experience.
-* A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
-* 2 sample CSS layouts in `layouts/` for a sidebar on either side of your content.
-* Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
-* Licensed under GPLv2 or later. :) Use it to make something cool.
