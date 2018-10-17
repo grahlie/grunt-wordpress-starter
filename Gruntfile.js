@@ -114,6 +114,6 @@ module.exports = function(grunt) {
 
   // GRUNT TRIGGERS
   grunt.registerTask('default', ['jshint', 'copy:deploy', 'uglify:dev', 'sass:dev', 'autoprefixer']);
+  grunt.registerTask('dev', ['jshint', 'copy:deploy', 'uglify:dev', 'sass:dev', 'autoprefixer']);
   grunt.registerTask('production', ['jshint', 'copy:deploy', 'uglify:production', 'sass:production', 'autoprefixer']);
-
 }

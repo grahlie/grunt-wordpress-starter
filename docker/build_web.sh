@@ -1,6 +1,11 @@
 #!/bin/bash
+echo ""
+echo "==============="
+echo "Running build_web.sh in $1"
+echo "==============="
+echo ""
 
-echo "1) Install JSON parser"
+echo "3.1) Install JSON parser"
 UNAME=`uname`
 which -s jq >/dev/null
 if [[ $? == 1 ]]; then 
@@ -12,8 +17,10 @@ if [[ $? == 1 ]]; then
     fi
 fi
 
-echo "2) Set some variables"
-# Check if we running in production
+echo "==============="
+echo ""
+
+echo "3.2) Set some variables"
 if [[ $inputVariable == 'production' ]]; then
     FILE="../config.prod.json"
     if [[ ! -d $FILE ]]; then
@@ -38,7 +45,10 @@ MACHINE=$(jq .docker.machine $FILE)
 MULTISITE=$(jq .docker.multisite $FILE)
 VERSION=$(jq .docker.version $FILE)
 
-echo "3) Strip specialchars from JSON value"
+echo "==============="
+echo ""
+
+echo "3.3) Strip specialchars from JSON value"
 # TODO: Find a solution to loop this
 NAME="${NAME%\"}"
 NAME="${NAME#\"}"
@@ -65,9 +75,12 @@ MULTISITE="${MULTISITE#\"}"
 VERSION="${VERSION%\"}"
 VERSION="${VERSION#\"}"
 
-echo "4) Create compose file"
+echo "==============="
+echo ""
+
+echo "3.4) Create compose file"
 dockercompose="./docker-compose.yml"
-if ! [[ -e $dockercompose ]]; then
+if [[ ! -e $dockercompose ]]; then
     echo "version: '2'"                                                     >> ./docker-compose.yml
     echo "services:"                                                        >> ./docker-compose.yml
     echo "  "$NAME"-db:"                                                    >> ./docker-compose.yml
@@ -114,19 +127,32 @@ if ! [[ -e $dockercompose ]]; then
     echo "      name: nginx-proxy"                                          >> ./docker-compose.yml
 fi
 
-echo "5) Compose up"
+echo "==============="
+echo ""
+
+echo "3.5) Compose up"
 docker-compose up -d
 
-echo "6) Configure hosts file"
-HOSTIP="$(docker-machine ip $MACHINE)"
-if grep -Fxq "$HOSTIP $DOMAIN" /etc/hosts; then
-    echo "Already exists in host file"
+echo "==============="
+echo ""
+
+echo "3.6) Configure hosts file"
+if [[ $inputVariable != 'production' ]]; then
+    HOSTIP="$(docker-machine ip $MACHINE)"
+    if grep -Fxq "$HOSTIP $DOMAIN" /etc/hosts; then
+        echo "Already exists in host file"
+    else
+        echo "Added to host file"
+        sudo cp /etc/hosts /etc/hosts.backup
+        sudo -- sh -c "echo $HOSTIP $DOMAIN >> /etc/hosts"
+    fi
 else
-    echo "Added to host file"
-    sudo cp /etc/hosts /etc/hosts.backup
-    sudo -- sh -c "echo $HOSTIP $DOMAIN >> /etc/hosts"
+    echo "Running in production so no change in hostfile"
 fi
 
-echo "7) You're up and running buddy!"
-echo "The website is running on http://$DOMAIN"
-echo "Next command you can run is grunt watch to start develop your theme"
+if [[ $inputVariable != 'production' ]]; then
+    echo "7) You're up and running buddy!"
+    echo "The website is running on http://$DOMAIN"
+    echo "Next command you can run is grunt watch to start develop your theme"
+fi
+echo "==============="

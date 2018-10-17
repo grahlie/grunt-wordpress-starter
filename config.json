@@ -10,7 +10,7 @@
         "dbpass": "wpdev",
         "debug": 0,
         "multisite": 0,
-        "version": "4.7.3",
+        "version": "4.9.8",
         "port": 80,
         "machine": "dinghy"
     }

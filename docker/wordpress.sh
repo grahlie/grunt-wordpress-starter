@@ -88,8 +88,8 @@ echo "if ( !defined('ABSPATH') )"                      >>/var/www/wp-config.php
 echo "  define('ABSPATH', dirname(__FILE__) . '/');"   >>/var/www/wp-config.php
 echo "require_once(ABSPATH . 'wp-settings.php');"      >>/var/www/wp-config.php
 
-echo "3) Setup Wordpress folders"
-mkdir -p /var/www/wp-content/uploads
+# echo "3) Setup Wordpress folders"
+# mkdir -p /var/www/wp-content/uploads
 # chown -R www-data:www-data /var/www/wp-content
 
 # echo "4) Install sendmail"
