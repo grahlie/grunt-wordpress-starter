@@ -5,6 +5,8 @@ This is my personal preferences from the popular underscore wordpress starter ki
 If you are new to this repo you should first take a look at the config.json file where you can find every settings used across different instances.
 After that you should take a look at run.sh and you can fire it up by running ./run.sh dev
 
+When running your website in production you need to create a copy of your config file named `config.prod.json` and run ./run.sh production
+
 ## _s
 I dont take any credit for this starter theme instead visit http://underscores.me for more information.
 
