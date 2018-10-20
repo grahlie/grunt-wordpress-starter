@@ -10,5 +10,3 @@ I dont take any credit for this starter theme instead visit http://underscores.m
 
 ## WordPress
 Have my own created framework and settings page for this theme installed and other special feature that is pretty standard for starting your WordPress web.
-
-Login credentials: devadmin / HFChFH19m2KuXn#*$5
