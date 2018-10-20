@@ -21,7 +21,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'theme/',
-          src: '**/*.php',
+          src: ['**/*.php', 'framework/**/*'],
           dest: '<%= config.grunt.deploy %>',
         }]
       }
