@@ -8,8 +8,8 @@ if [[ $inputVariable < 1 ]]; then
     echo ""
     echo "--------------------------------------------------------"
     echo "|    production -- for a fully production ready web    |"
-    echo "|    dev -- a web without compressed files             |"
-    echo "|    fresh -- for a new clean install                  |"
+    echo "|    dev        -- a web without compressed files      |"
+    echo "|    fresh      -- for a new clean install             |"
     echo "--------------------------------------------------------"
     echo ""
     echo ""
@@ -29,7 +29,7 @@ echo ""
 echo "2) Grunt deploy"
 if [[ $inputVariable == 'production' ]]; then
     grunt production
-else
+elif [[ $inputVariable == 'dev' ]]; then
     grunt dev
 fi
 
@@ -44,7 +44,7 @@ elif [[ $inputVariable == 'fresh' ]]; then
     echo "New docker-compose.yml file"
     rm docker-compose.yml
     ./build_web.sh dev
-else
+elif [[ $inputVariable == 'dev' ]]; then
     ./build_web.sh dev
 fi
 
