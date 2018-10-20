@@ -87,8 +87,8 @@ module.exports = function(grunt) {
         livereload: true,
       },
       php: {
-        files: ['theme/**.php'],
-        tasks: ['copy']
+        files: ['theme/**/*.php'],
+        tasks: ['copy:deploy']
       },
       css: {
         files: ['theme/sass/**/*.scss'],

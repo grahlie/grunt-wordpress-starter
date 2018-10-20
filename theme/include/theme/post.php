@@ -58,15 +58,16 @@ function grahlie_posted_on() {
         '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
     );
 
+    $category = '';
     if ( 'post' === get_post_type() ) {
         $categories_list = get_the_category_list( esc_html__( ', ', 'grahlie' ) );
         if ( $categories_list && grahlie_categorized_blog() ) {
-            $category = sprintf( esc_html__( 'Posted in %1$s ', 'grahlie' ), $categories_list );
+            $categoryContent = sprintf( esc_html__( 'Posted in %1$s ', 'grahlie' ), $categories_list );
+            $category = '<span class="cat-links">' . $categoryContent . '</span>';
         }
     }
 
-    echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span><span class="cat-links"> ' . $category . '</span>';
-
+    echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span> ' . $category;
 }
 
 /**
