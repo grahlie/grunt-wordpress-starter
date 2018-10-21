@@ -12,6 +12,14 @@ function grahlie_frontpage_settings(){
     $frontpage_options['title'] = 'Frontpage Options';
     $frontpage_options['desc']  = 'Settings for your frontpage.';
     $frontpage_options['id']    = 'frontpage_options';
+
+    $frontpage_options[] = array(
+        'title' => 'Intro text',
+        'desc'  => 'Text you want to display in header',
+        'type'  => 'textarea',
+        'id'    => 'frontpage_intro_text',
+    );
+
                                 
     $frontpage_options[] = array(
         'title'     => 'Showcase pages on firstpage',
@@ -44,6 +52,18 @@ function grahlie_frontpage_settings(){
                                 
     grahlie_add_framework_page( 'Frontpage Options', $frontpage_options );
 }
+
+/**
+ * Create intro text to display in header
+ */
+function grahlie_intro_header_text() {
+    $grahlie_values = get_option('grahlie_framework_values');
+
+    $output = $grahlie_values['frontpage_intro_text'];
+
+    return $output;
+}
+
 
 /**
  * Output pages defined in framework

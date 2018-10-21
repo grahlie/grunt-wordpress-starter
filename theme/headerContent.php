@@ -15,6 +15,7 @@ if ( get_the_post_thumbnail($post->ID) ) { ?>
             <input type="checkbox" id="nav-trigger">
             <label for="nav-trigger" id="navopen"></label>
 
+            <?php echo grahlie_show_language_switcher(); ?>
             <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'menu_class' => 'navigation', 'container' => '' ) ); ?>
         </nav>
     </div>
@@ -30,8 +31,11 @@ if ( get_the_post_thumbnail($post->ID) ) { ?>
             <input type="checkbox" id="nav-trigger">
             <label for="nav-trigger" id="navopen"></label>
 
+            <?php echo grahlie_show_language_switcher(); ?>
             <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'menu_class' => 'navigation', 'container' => '' ) ); ?>
         </nav>
+
+        <?php echo grahlie_intro_header_text(); ?>
     </div>
 
 <?php } ?>
