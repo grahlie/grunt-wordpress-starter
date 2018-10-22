@@ -109,9 +109,23 @@ if [[ ! -e $dockercompose ]]; then
     echo "      WORDPRESS_DB_USER:" $DBUSER                                 >> ./docker-compose.yml
     echo "      WORDPRESS_DB_PASSWORD:" $DBPASS                             >> ./docker-compose.yml
     echo "      WORDPRESS_DB_HOST:" $NAME"-db"                              >> ./docker-compose.yml
+
     if [[ $DEBUG == 1 ]]; then 
         echo "      WORDPRESS_DEBUG:" $DEBUG                                >> ./docker-compose.yml
     fi
+
+    # TODO: Wordpress image doesn't work with this
+    if [[ $MULTISITE == 1 ]]; then
+        echo "      WORDPRESS_CONFIG_EXTRA: |"                              >> ./docker-compose.yml
+        echo "        define('WP_ALLOW_MULTISITE', true );"                 >> ./docker-compose.yml
+        echo "        define('MULTISITE', true);"                           >> ./docker-compose.yml
+        echo "        define('SUBDOMAIN_INSTALL', false);"                  >> ./docker-compose.yml
+        echo "        define('DOMAIN_CURRENT_SITE', '$DOMAIN');"            >> ./docker-compose.yml
+        echo "        define('PATH_CURRENT_SITE', '/');"                    >> ./docker-compose.yml
+        echo "        define('SITE_ID_CURRENT_SITE', 1);"                   >> ./docker-compose.yml
+        echo "        define('BLOG_ID_CURRENT_SITE', 1);"                   >> ./docker-compose.yml
+    fi
+
     echo "      DOMAIN:" $DOMAIN                                            >> ./docker-compose.yml
     echo "    container_name: " $NAME                                       >> ./docker-compose.yml
     echo "  nginx-proxy:"                                                   >> ./docker-compose.yml
