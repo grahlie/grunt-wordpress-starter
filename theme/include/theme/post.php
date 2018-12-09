@@ -76,12 +76,6 @@ function grahlie_posted_on() {
 function grahlie_entry_footer() {
     $output = '';
 
-    if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-        $output .= '<span class="comments-link">';
-        comments_popup_link( esc_html__( 'Leave a comment', 'grahlie' ), esc_html__( '1 Comment', 'grahlie' ), esc_html__( '% Comments', 'grahlie' ) );
-        $output .= '</span>';
-    }
-
     if (current_user_can( 'manage_options' ) ) {
         $edit_link = get_edit_post_link();
         $output .= '<a href="' . $edit_link . '" class="btn btn-secondary edit-link">Edit ' . get_the_title() . '</a>';

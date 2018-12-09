@@ -16,7 +16,6 @@ module.exports = function(grunt) {
     //   'extracted/': 'downloads/<%= config.grunt.wp.version %>.zip',
     // },
 
-    // PHP
     copy: {
       deploy: {
         files: [{
@@ -28,7 +27,12 @@ module.exports = function(grunt) {
       }
     },
 
-    // CSS
+    /*
+     * SCSS
+     * 
+     * Build css from scss
+     * autoprefix
+     */
     sass: {
       production: {
         options: {
@@ -54,15 +58,16 @@ module.exports = function(grunt) {
         }
       }
     },
-
     
-    // JS
-    // Check js files for errors
+    /*
+     * Javascript
+     * 
+     * Check for errors
+     * Minify/Uglify
+     */
     jshint: {
       all: ['/js/development/*.js', '!js/development/libs/**/*.js']
     },
-
-    // Minify all js files
     uglify: {
       production: {
         files: {
@@ -80,9 +85,6 @@ module.exports = function(grunt) {
       }
     },
 
-
-
-    // WATCH
     watch: {
       options: {
         livereload: true,
