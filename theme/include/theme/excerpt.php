@@ -22,7 +22,7 @@ add_filter( 'excerpt_more', 'grahlie_excerpt_link' );
  * Filter the except length.
  */
 function grahlie_excerpt_length( $length ) {
-    return 55;
+    return grahlie_blog_excerpt_length();
 }
 add_filter( 'excerpt_length', 'grahlie_excerpt_length', 999 );
 

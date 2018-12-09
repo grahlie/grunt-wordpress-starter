@@ -12,10 +12,6 @@
         <div class="size8">
             <?php dynamic_sidebar('footer'); ?>
         </div>
-        <p class="grahlieLogo size4">
-            &copy; <?php bloginfo( 'name' ); ?> -
-            <?php printf( esc_html__( 'Skapad av %1$s', 'grahlie' ), '<a href="http://grahlie.se" rel="designer"></a>'); ?>
-        </p>
     </div>
 </footer>
 

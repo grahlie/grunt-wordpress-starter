@@ -15,14 +15,8 @@ article {
   }
 }
 
-.byline,
 .updated:not(.published){
   display: none;
-}
-
-.single .byline,
-.group-blog .byline {
-  display: inline;
 }
 
 .page-links {

@@ -48,15 +48,19 @@ function grahlie_posted_on() {
         esc_html( get_the_modified_date( 'H:i - j M, Y' ) )
     );
 
-    $posted_on = sprintf(
-        esc_html_x( 'Posted on %s', 'post date', 'grahlie' ),
-        $time_string
-    );
+    if (grahlie_blog_show_date()) {
+        $posted_on = sprintf(
+            esc_html_x( 'Posted on %s', 'post date', 'grahlie' ),
+            '<span class="posted-on">' . $time_string . '</span>'
+        );
+    }
 
-    $byline = sprintf(
-        esc_html_x( 'by %s', 'post author', 'grahlie' ),
-        '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-    );
+    if (grahlie_blog_show_author()) {
+        $byline = sprintf(
+            esc_html_x( 'by %s', 'post author', 'grahlie' ),
+            '<span class="byline"><span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span></span>'
+        );
+    }
 
     $category = '';
     if ( 'post' === get_post_type() ) {
@@ -66,8 +70,8 @@ function grahlie_posted_on() {
             $category = '<span class="cat-links">' . $categoryContent . '</span>';
         }
     }
-
-    echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span> ' . $category;
+    
+    echo $posted_on . ' ' . $byline . ' ' . $category;
 }
 
 /**
