@@ -10,8 +10,13 @@ define('GRAHLIE_URL', get_template_directory_uri() .'/framework');
 /*	Load Framework Components */
 require_once(GRAHLIE_DIR .'/grahlie-admin-init.php');
 require_once(GRAHLIE_DIR .'/grahlie-admin-functions.php');
-require_once(GRAHLIE_DIR .'/grahlie-admin-page.php');
 require_once(GRAHLIE_DIR .'/grahlie-admin-input.php');
+require_once(GRAHLIE_DIR .'/grahlie-admin-page.php');
+
+/* Pages */
+require_once(GRAHLIE_DIR .'/pages/theme-settings.php');
+require_once(GRAHLIE_DIR .'/pages/frontpage-settings.php');
+require_once(GRAHLIE_DIR .'/pages/multisite-settings.php');
 
 
 ?>
