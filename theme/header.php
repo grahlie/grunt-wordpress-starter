@@ -7,12 +7,12 @@
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<?php echo grahlie_use_favicon(); ?>
-<title><?php echo grahlie_pretty_title( '-' ); ?></title>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<?php echo grahlie_use_favicon(); ?>
+	<title><?php echo grahlie_pretty_title( '-' ); ?></title>
 
-<?php wp_head(); ?>
+	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>

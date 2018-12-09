@@ -17,10 +17,6 @@ get_header(); ?>
 
 		grahlie_post_nav();
 
-		if ( comments_open() || get_comments_number() ) {
-			comments_template();
-		}
-
 	} ?>
 
 	</main>
