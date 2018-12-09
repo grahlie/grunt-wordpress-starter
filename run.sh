@@ -20,7 +20,12 @@ echo "1) NPM Install"
 if [[ ! -d 'node_modules' ]]; then
     npm install
 else
-    echo "node_modules already exists"
+    if [[ $inputVariable == 'fresh' ]]; then
+        echo "Fresh npm install"
+        npm install
+    else
+        echo "node_modules already exists"
+    fi
 fi
 
 echo "==============="
@@ -41,7 +46,7 @@ cd ./docker
 if [[ $inputVariable == 'production' ]]; then
     ./build_web.sh production
 elif [[ $inputVariable == 'fresh' ]]; then
-    echo "New docker-compose.yml file"
+    echo "Fresh docker-compose.yml file"
     rm docker-compose.yml
     ./build_web.sh dev
 elif [[ $inputVariable == 'dev' ]]; then
