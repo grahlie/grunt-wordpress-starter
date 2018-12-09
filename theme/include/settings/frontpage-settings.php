@@ -20,7 +20,6 @@ function grahlie_frontpage_settings(){
         'id'    => 'frontpage_intro_text',
     );
 
-                                
     $frontpage_options[] = array(
         'title'     => 'Showcase pages on firstpage',
         'desc'      => 'Check this box if you want pages to show up on frontpage.',
@@ -48,8 +47,7 @@ function grahlie_frontpage_settings(){
             )
         )
     );
-                                
-                                
+
     grahlie_add_framework_page( 'Frontpage Options', $frontpage_options );
 }
 
@@ -76,7 +74,6 @@ function grahlie_use_pages($class = null, $title, $thumbnail){
     if( array_key_exists('use_pages', $grahlie_values) && $grahlie_values['use_pages'] == 'on' && array_key_exists('use_pages_count', $grahlie_values) ){
         
         for($i=1; $i <= $grahlie_values['use_pages_count']; $i++) {
-
             $page  = get_post($grahlie_values['use_pages_select'][$i]);
             $size  = 'size' . 12/$grahlie_values['use_pages_count'];
             $id    = get_post_class()[0];
@@ -102,12 +99,9 @@ function grahlie_use_pages($class = null, $title, $thumbnail){
 
                 
             $output .= '<p>' . $content . '</p><a href="' . $page->post_name .'" class="btn btn-primary">Läs mer</a></div>';
-            
         }
-
     }
 
     return $output;
 }
-
 ?>

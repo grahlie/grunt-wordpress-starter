@@ -2,6 +2,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
       pkg: grunt.file.readJSON('package.json'),
       config: grunt.file.readJSON('config.json'),
+      deploy: process.cwd() + '/<%= config.grunt.deploy %>',
 
     // Download packages from other places
     // 'curl-dir': {
@@ -22,7 +23,7 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'theme/',
           src: ['**/*.php', 'framework/**/*'],
-          dest: '<%= config.grunt.deploy %>',
+          dest: '<%= deploy %>',
         }]
       }
     },
@@ -34,7 +35,7 @@ module.exports = function(grunt) {
           style: 'compressed'
         },
         files: {
-          '<%= config.grunt.deploy %>/style.css': 'theme/sass/style.scss'
+          '<%= deploy %>/style.css': 'theme/sass/style.scss'
         }
       },
       dev: {
@@ -42,14 +43,14 @@ module.exports = function(grunt) {
           style: 'expanded'
         },
         files: {
-          '<%= config.grunt.deploy %>/style.css': 'theme/sass/style.scss'
+          '<%= deploy %>/style.css': 'theme/sass/style.scss'
         }
       }
     },
     autoprefixer:{
       dist:{
         files:{
-          '<%= config.grunt.deploy %>/style.css':'<%= config.grunt.deploy %>/style.css'
+          '<%= deploy %>/style.css':'<%= deploy %>/style.css'
         }
       }
     },
@@ -65,7 +66,7 @@ module.exports = function(grunt) {
     uglify: {
       production: {
         files: {
-          '<%= config.grunt.deploy %>/js/scripts.min.js': ['theme/js/development/**/*.js']
+          '<%= deploy %>/js/scripts.min.js': ['theme/js/development/**/*.js']
         }
       },
       dev: {
@@ -74,7 +75,7 @@ module.exports = function(grunt) {
           beautify: true
         },
         files: {
-          '<%= config.grunt.deploy %>/js/scripts.min.js': ['theme/js/development/**/*.js']
+          '<%= deploy %>/js/scripts.min.js': ['theme/js/development/**/*.js']
         }
       }
     },

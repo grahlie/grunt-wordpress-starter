@@ -68,11 +68,3 @@ function grahlie_admin_scripts() {
 	wp_enqueue_script( 'admin-scripts' );
 }
 add_action('admin_menu', 'grahlie_admin_scripts');
-
-/**
- * Style for the login page
- */
-// function grahlie_login_page() { 
-// 	wp_enqueue_style( 'admin-login-page', get_template_directory_uri() . '/framework/css/login-style.css', false ); 
-// }
-// add_action( 'login_enqueue_scripts', 'grahlie_login_page' );
