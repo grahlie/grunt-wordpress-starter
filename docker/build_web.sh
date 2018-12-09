@@ -75,6 +75,8 @@ MULTISITE="${MULTISITE#\"}"
 VERSION="${VERSION%\"}"
 VERSION="${VERSION#\"}"
 
+MOUNTED=${PWD%"docker"}${FOLDER#"/"}
+
 echo "==============="
 echo ""
 
@@ -97,7 +99,7 @@ if [[ ! -e $dockercompose ]]; then
     echo "  "$NAME":"                                                       >> ./docker-compose.yml
     echo "    image: wordpress:"$VERSION                                    >> ./docker-compose.yml
     echo "    volumes:"                                                     >> ./docker-compose.yml
-    echo "      - "$FOLDER":/var/www/html/wp-content/themes/"$NAME          >> ./docker-compose.yml
+    echo "      - "$MOUNTED":/var/www/html/wp-content/themes/"$NAME         >> ./docker-compose.yml
     echo "    expose:"                                                      >> ./docker-compose.yml
     echo "      - 80"                                                       >> ./docker-compose.yml
     echo "    depends_on:"                                                  >> ./docker-compose.yml
