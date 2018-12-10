@@ -7,8 +7,5 @@ After that you should take a look at run.sh and you can fire it up by running ./
 
 When running your website in production you need to create a copy of your config file named `config.prod.json` and run ./run.sh production
 
-## _s
-I dont take any credit for this starter theme instead visit http://underscores.me for more information.
-
 ## WordPress
-Have my own created framework and settings page for this theme installed and other special feature that is pretty standard for starting your WordPress web.
+Have my own created framework and settings page for this theme installed and other special feature that is pretty standard for starting your WordPress web. Started out with _s so the base of the theme is built on top of that, I dont take any credit for this starter theme instead visit http://underscores.me for more information.
